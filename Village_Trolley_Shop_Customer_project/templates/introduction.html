@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <!-- Load static and i18n tags if needed -->
+    {% load static %}
+    {% load i18n %}
+    <!-- Link to your CSS files -->
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'introduction.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% endblock css %}
+</head>
+<body>
+
+<section>
+    <nav class="navbar navbar-custom">
+        <div class="VT_logo">
+            <img src="{% static 'fotor-2024062021484.png' %}" style="width: 100px; height: 100px;" alt="VT Logo">
+        </div>
+        
+        <div class="navbar-title">
+            <span style="font-weight: bold; 
+                        background: linear-gradient(to right, #F6FF00,#ff3737,purple); 
+                        -webkit-background-clip: text; 
+                        color: transparent;
+                        font-family: 'Playfair Display', serif; font-style: italic; ">
+                Village Trolley
+            </span>
+        </div>
+
+        <div class="navbar-links">
+            <a href="#"><u>Home</u></a>
+            <a href="#"><u>Add Items</u></a>
+            <a href="#"><u>Bill Items </u> </a>
+            <a href="#"><u>Analytics </u></a>
+
+            <!-- Google Translate Element -->
+            <div id="google_translate_element"></div>
+            <script>
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+            <!-- Uncomment below to add Language link -->
+            {% comment %} <!-- <a href="{% url 'home' %}">Language</a> --> {% endcomment %}
+
+            <a href="#"><u>Nearby Stores</u></a>
+        </div>
+
+        <div class="user-section">
+            <div class="user-info">
+                <h2 class="W">Welcome guest!</h2>
+                <div class="login-register">
+                    <a class="L" href="#"><u>Login</u></a>
+                    <span>|</span>
+                    <a class="R" href="#"><u>Register</u></a>
+                </div>
+            </div>
+            <i class="fa fa-circle-user"></i>
+        </div>
+    </nav>
+</section>
+
+<section class="Notesec">
+    <div id="note" class="note">
+        <span class="note-text">Note:- Please Use desktop version for better experience. This page serves as a guide to the features of this app. Please register and log in to access and experience the app.</span>
+        <button class="close-btn" onclick="closeNote()"><i class="fa-solid fa-circle-xmark"></i></button>
+    </div>
+  
+    <script>
+        function closeNote() {
+            document.getElementById('note').style.display = 'none';
+        }
+    </script>
+  </section>
+
+  
+
+  <section class="mainpage">
+      <div class="home_page">
+          <div class="shopbox">
+               <h2 class="FSObox">For Shop Owners</h2>
+               <ul class = "FSOlist">
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Forgot the price and product location; don't worry, we provide.</li>
+                 
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> You can easily add more products at a time using the table interface.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> No delays in selling and billing; high-speed work.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Accurate bill calculations, fast and error-free.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Don't worry about data security.we provide high security for your data.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> We ensure high security and privacy for your data.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Instant billing insights: price, quantity, total.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Stock alerts: low stock notifications.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Send automated messages to dealers.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> List of the most and least selling products.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Actionable analytics Daily, Monthly, Yearly: Profit, loss reports</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Great search functionality. Find products with ease.</li>
+                 <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
+               </ul>
+               <a href="#" class="FSObutton" role="button">
+                <span class="text">Get Started</span>
+            </a>
+          </div>
+     
+         <div class="customerbox">
+           <h2 class="FCbox">For Customers</h2>
+           <ul class = "FClist">
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Explore and choose the best nearby shop for you.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Utilize the great search feature for quickly finding shops.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Find the price and stock availability of products in the shop from anywhere.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Compare the prices of products in nearby stores.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Choose the best shop near you and save money.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Check product availability anywhere: Access information conveniently.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Save valuable time and money with informed decisions.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Find all the data here: Access comprehensive information.</li> 
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Choose the shop based on reviews.</li>
+             <li><i class="fa-solid fa-circle-arrow-right"></i> Daily and monthly buying analysis.</li>
+           </ul>
+           <a href="#" class="FSObutton" role="button">
+            <span class="text">Get Started</span>
+        </a>
+         </div>
+       </div>
+  
+  </section>
+
+  <section class="SORegister">
+    <div class="SORBox">
+        <h2 class="SORH">Shop Owner Registration</h2>
+       <form>
+           <div class="form-group">
+               <label for="fname">First Name :</label>
+               <input type="text" id="fname" name="fname" placeholder="First name">
+           </div>
+           <div class="form-group">
+               <label for="lname">Last Name :</label>
+               <input type="text" id="lname" name="lname" placeholder="Last name">
+           </div>
+         
+           <div class="form-group">
+               <label for="lname">Shop Name :</label>
+               <input type="text" id="lname" name="lname" placeholder="Shop name">
+           </div>
+          <div class="form-group">
+               <label for="email">Mail Id :</label>
+               <input type="email" id="email" name="email" placeholder="Email ID">
+           </div>
+           <div class="form-group">
+               <label for="pno">Phone Number :</label>
+               <input type="tel" id="pno" name="pno" placeholder="Phone Number">
+           </div>
+           
+           <div class="form-group">
+               <label for="ast">Street Address :</label>
+               <input type="text" id="ast" name="ast" placeholder="Street Address ">
+           </div>
+           <div class="form-group">
+               <label for="village">Village :</label>
+               <input type="text" id="village" name="village" placeholder="Village name">
+           </div>
+           <div class="form-group">
+               <label for="mandal">Mandal :</label>
+               <input type="text" id="mandal" name="mandal" placeholder="Mandal name">
+           </div>
+           <div class="form-group">
+               <label for="city">City :</label>
+               <input type="text" id="city" name="city" placeholder="City Name">
+           </div>
+           <div class="form-group">
+               <label for="state">State :</label>
+               <input type="text" id="state" name="state" placeholder="State Name">
+           </div>
+           <div class="form-group">
+               <label for="pc">Pin Code :</label>
+               <input type="number" id="pc" name="pc" placeholder="Pin Code">
+           </div>
+           <div class="form-group">
+               <label for="passwd">Password :</label>
+               <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
+           </div>
+       </form>
+      <button type="button" class="join-button">Join Us</button>
+      <p class="rloginp">Already have an account. Please <a href="url" class="ralogin-link">Login</a></p>
+    </div>
+ </section>
+ 
+ <section class="Login">
+    <div class="loginbox">
+         <h2 class="SOLH">Shop Owner login</h2>
+         <form>
+           <div class="form-group1">
+              <label for="pno">Phone Number :</label>
+              <input type="tel" id="pno" name="pno" placeholder="Enter Your Phone Number">
+          </div>
+           <div class="form-group1">
+              <label for="passwd">Password :</label>
+              <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
+          </div>
+         </form>      
+         
+         <button type="button" class="join-button">Login</button>
+         <p class="fpp">Forgot your password? Don't worry!. Please <a href="#" class="rplogin-link">Reset password</a></p>
+      <p class="fpp">Don't have an account? Please <a href="#" class="rplogin-link">Join us!</a></p>
+    </div>
+</section>
+
+<section class="resetpwdsec">
+    <div class="card">
+        <h2 class="resethead">Shop Owner Reset Password</h2>
+        <form>
+            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Please enter your registered mobile number." required class="styled-input">
+            <input type="password" id="password" name="password" placeholder="Please enter your new password here" required class="styled-input">
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Please enter your new password here to confirm." required class="styled-input">
+        </form>
+        <button type="submit" class="reset-button">Reset Password</button>
+    </div>
+</section>
+
+<section class="additems">
+    <h1 class="adih">Add items to the store</h1>
+    <div class="additemsbox">
+    <h5 class="additemsguide">Enter the name of the product in the 'Product Name' field, current price of the product in 'Price' (modifiable later), specify the quantity, and indicate the location of the product. Divide the store into sections for each category and organize them sequentially to facilitate easy identification. Additionally, specify the section and exact position of the product for fast identification purposes in the designated 'Place' field.</h5>
+      
+  <div class="AISB">
+    <button type="submit" class="save-button">Save All</button>
+  </div>
+    <table class="editable-table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Buying Price</th>
+        <th>Selling price</th>
+        <th>Quantity</th>
+        <th>Place</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 120" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 140" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="Oil 10" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="Mirchi Powder" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 100" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 120" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="15" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="Mirchi Powder 10" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="groundnut-Oil" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 150" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 160" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="Oil 11" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="coconut-Oil" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 60" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 70" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="Oil 12" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="Salt" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 25" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 30" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="salt a" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="Rice" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 60" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 70" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="Rice" class="editable-input">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="text" name="name" value="turmeric" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 80" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 90" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="turmeric" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="Chicken Masala" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 100" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 110" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="20" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="chicken masala" class="editable-input">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="name" value="Soyabean-Oil" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="contact" value="₹ 140" class="editable-input">
+        </td>
+        <td>
+        <input type="text" name="contact" value="₹ 150" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="10" class="editable-input">
+        </td>
+        <td>
+          <input type="text" name="country" value="Oil 13" class="editable-input">
+        </td>
+      </tr>
+
+
+
+      <!-- Add more <tr> blocks as needed for additional rows -->
+    </tbody>
+  </table>
+  
+  
+    </div>
+  </section>
+
+
+  <section class="billing_section">
+    <div class="billing_box">
+        <h6 class="billingbox_guide"><marquee class="bgmar" scrollamount="2">Enter all billing items individually using the search option. After entering all items, click 'Bill'.</marquee></h6>
+        {% comment %} <button class="bill-button2">Low Stock Products</button> {% endcomment %}
+        <button class="bill-button2">Low Stock Products</button>
+
+        
+        <form>   
+        <input type="text" id="productNameSearch" class="cust_mailId" placeholder="Enter Customer registerd Phone number">
+        </form> 
+            
+        
+
+        <div class="search-container">
+            
+            <input type="text" id="productNameSearch" class="product-search" placeholder="Find the product">
+            <button class="search-button"><i class="fa fa-search"></i></button>
+            
+        </div>
+        
+        <table class="billtable">
+            <thead>
+                <tr>
+                    <th class="product-name">Product Name</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="price">Price</th>
+                    <th class="place">Place</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-row">
+                    <td class="product-name">Product 1</td>
+                    <td class="quantity-editable" contenteditable="true">11</td>
+                    <td class="price-value">11 X ₹ 30 = ₹ 330</td>
+                    <td class="place-value">Oil</td>
+                </tr>
+                <tr class="table-row">
+                    <td class="product-name">Product 2</td>
+                    <td class="quantity-editable" contenteditable="true">12</td>
+                    <td class="price-value">12 X ₹ 40 = ₹ 480</td>
+                    <td class="place-value">Masalas</td>
+                </tr>
+                <tr class="table-row">
+                    <td class="product-name">Product 3</td>
+                    <td class="quantity-editable" contenteditable="true">13</td>
+                    <td class="price-value">13 X ₹ 50 = ₹ 650</td>
+                    <td class="place-value">Rice</td>
+                </tr>
+                <tr class="table-row">
+                    <td class="product-name">Product 4</td>
+                    <td class="quantity-editable" contenteditable="true">14</td>
+                    <td class="price-value">14 X ₹ 60 = ₹ 840</td>
+                    <td class="place-value">snacks</td>
+                </tr>
+                
+                <!-- Additional rows can be dynamically added using JavaScript -->
+            </tbody>
+        </table>
+        <div class="total-section">
+            <div>Total Bill: <span id="totalBillAmount">₹ 1000.00</span></div>
+            <div>Total Amount: <span id="totalAmount">₹ 1000.00</span></div>
+        </div>
+        <button class="bill-button">Bill</button>
+        
+    </div>
+</section>
+  
+
+<section class="analitycs_section">
+    <div class="analitics-box">  
+      <div>
+        <h5><u>Daily</u></h5>
+        <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">Daily selling products</button>
+        <p id="current-date"></p>
+        <p id="current-time"></p>
+        <p>Sold Today : ₹ 1000</p>
+        <p>Products sold: 100</p>
+        <p>Profit/Loss : ₹ 30000</p>
+      </div>
+      <div>
+        <h5><u>Monthly</u></h5>
+        <button class="MSPbu" onclick="window.location.href='/daily_monthly_data'">Monthly selling products</button>
+        <p id="current-month"></p>
+        <p>Sold This month : ₹ 1000</p>
+        <p>Products sold: 100</p>
+        <p>Profit/Loss : ₹ 300000000</p>
+      </div>
+      <div>
+        <h5><u>Yearly</u></h5>
+        
+        <p id="current-year"></p>
+        <p>Sold This Year : ₹ 1000</p>
+        <p>Products sold: 100</p>
+        <p>Profit/Loss : ₹ 3000000000</p>
+      </div>
+      <div>
+          <h5><u>Total Profit</u></h5>
+          <p>Investment: ₹ 50000</p>
+          <p>Return : ₹ 80000</p>
+          <p>If cond Profit : ₹ 30000</p>
+      </div>
+      <div>
+        <h5><u>Total Loss</u></h5>
+          <p>Investment: ₹ 50000</p>
+          <p>Return : ₹ 80000</p>
+          <p>If cond Loss : ₹ 30000</p>
+      </div>
+      <div>
+        <h5> <u>Most & Least selling products</u></h5>
+        
+        <p>Most :- Oil,Eggs,Milk, </p>
+        <p>Chocolates,Drinks</p>
+        <p>Least :- Rice,Masala,<p>
+        </p>Jaggery,Dals</p>
+        </div>
+    </div>
+  </section>
+
+
+  <script>
+    function updateTime() {
+      // Create a new Date object for current time
+      var currentTime = new Date();
+  
+      // Calculate IST offset in minutes (UTC +5:30)
+      var ISTOffset = 330;
+  
+      // Calculate IST time using the provided method
+      var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentTime.getTimezoneOffset()) * 60000);
+  
+      // Extract components of IST time
+      var hours = ISTTime.getHours();
+      var minutes = ISTTime.getMinutes();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+  
+      // Convert hours from 24-hour to 12-hour format
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+  
+      // Ensure minutes are two digits
+      minutes = (minutes < 10 ? '0' : '') + minutes;
+  
+      // Build the time string in 12-hour format with AM/PM
+      var timeString = hours + ':' + minutes + ' ' + ampm;
+  
+      // Build the date string in DD/MM/YYYY format
+      var dateString = ISTTime.toLocaleDateString('en-IN');
+  
+      // Update the HTML elements
+      document.getElementById('current-time').textContent = 'Time : ' + timeString;
+      document.getElementById('current-date').textContent = 'Date : ' + dateString;
+  }
+  
+  // Call updateTime function initially to avoid delay
+  updateTime();
+  
+// Update time every minute (60000 milliseconds)
+setInterval(function() { updateTime(); }, 60000);
+
+    </script>
+    
+    <script>
+    function updateMonthAndYear() {
+        // Create a new Date object for current time
+        var currentTime = new Date();
+    
+        // Extract current month and year
+        var month = currentTime.toLocaleString('en-US', { month: 'long' });
+        var year = currentTime.getFullYear();
+    
+        // Display month and year in the HTML elements
+        document.getElementById('current-month').textContent = ' Month: ' + month.toUpperCase();
+        document.getElementById('current-year').textContent = ' Year: ' + year;
+    }
+    
+    // Call updateMonthAndYear function initially to set the initial display
+    updateMonthAndYear();
+    
+    // This script does not update every second since month and year don't change frequently
+    // If you need it to update periodically, use a setInterval similar to the previous examples
+    
+    </script>
+
+
+    <section class="DMSPsec">
+        <h1 class="DMASCH"> SHOP NAME </h1>
+        <div class="DMSPbox">
+           <div class="daily">
+              <h2 class="DSPBH"><u>Daily Selling Products</u></h2>
+             <div class="input-container">
+      <input type="text" placeholder="Enter the date Ex:- 15-07-2024 ">
+      <button type="button" class="search-button">
+        <i class="fas fa-search fa-lg"></i>
+      </button>
+     </div>
+              <h5 class="DSPH"> <u><i>   Product Name          Quantity         Price</u></i></h5>
+              <p class="DSPP">  Rice                    20         ₹ 200 </p>
+              <p class="DSPP">  Milk                    5          ₹ 50 </p>
+              <p class="DSPP">  Bread                   2          ₹ 30 </p>
+              <p class="DSPP">  Eggs                    12         ₹ 60 </p>
+              <p class="DSPP">  Cheese                  1          ₹ 150 </p>
+              <p class="DSPP">  Apples                  6          ₹ 120 </p>
+              <p class="DSPP">  Bananas                 8          ₹ 80 </p>
+              <p class="DSPP">  Chicken                 2          ₹ 300 </p>
+              <p class="DSPP">  Yogurt                  3          ₹ 70 </p>
+              
+             
+      <div class="container-unique">
+      <div class="white-box-unique">
+        <div class="text-unique">
+          <p>TOTAL AMOUNT INVESTED TODAY:<b> ₹  100000</b></p>
+          <p>TOTAL AMOUNT SOLD TODAY:<b> ₹ 100000</b></p>
+          <p>TOTAL AMOUNT PROFIT/LOSS TODAY: <b> ₹ 100000 </b></p>
+        </div>
+      </div>
+     </div>
+     
+             
+           </div>
+           <div class="monthly">
+              <h2 class="MSPBH"><u>Monthly Selling Products</u></h2>
+             <div class="input-container">
+      <input type="text" placeholder="Filter by month and year as 07-2024">
+      <button type="button" class="search-button">
+        <i class="fas fa-search fa-lg"></i>
+      </button>
+     </div>
+              <h5 class="MSPH"> <u><i>   Product Name           Quantity          Price</u></i></h5>
+              <p class="MSPP">   Potatoes                15         ₹ 100 </p>
+                <p class="MSPP">   Tomatoes                10         ₹ 80 </p>
+                <p class="MSPP">   Carrots                 8          ₹ 60 </p>
+                <p class="MSPP">   Onions                  12         ₹ 40 </p>
+                <p class="MSPP">   Cucumbers               7          ₹ 50 </p>
+                <p class="MSPP">   Lettuce                 3          ₹ 70 </p>
+                <p class="MSPP">   Bell Peppers            4          ₹ 120 </p>
+
+               <div class="container-unique">
+      <div class="white-box-unique">
+        <div class="text-unique">
+          <p>TOTAL AMOUNT INVESTED THIS MONTH:<b> ₹  100000</b></p>
+          <p>TOTAL AMOUNT SOLD THIS MONTH:<b> ₹ 100000</b></p>
+          <p>TOTAL AMOUNT PROFIT/LOSS THIS MONTH: <b> ₹ 100000 </b></p>
+        </div>
+      </div>
+     </div>
+           </div>
+        </div>
+     </section>
+
+
+     <section class="lowstockproducts">
+        <div class="lowstockbox">
+            <h5 class="lowstockhead"><i class="fa-solid fa-battery-quarter"></i> Low Stock Products</h5>
+            <div class="lowstocklist">
+                <p>Product name - Quantity</p>
+                <p>Rice - 15</p>
+                <p>Milk - 8</p>
+                <p>Bread - 3</p>
+                <p>Eggs - 20</p>
+                <p>Apples - 5</p>
+                <p>Tomatoes - 10</p>
+                <p>Chicken - 2</p>
+                <p>Yogurt - 5</p>
+                <p>Spinach - 4</p>
+                <p>Cereal - 6</p>
+                <button class="lowstkbut">Send Reminder</button>
+            </div>
+        </div>
+    </section>
+    
+
+</body>
+</html>
