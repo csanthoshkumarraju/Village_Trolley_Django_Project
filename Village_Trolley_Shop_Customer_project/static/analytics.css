@@ -1,0 +1,65 @@
+.analitycs_section {
+    padding: 10px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom right, #98FB98, #B2BEB5, #EADDCA, #E1C16E);
+    max-width: 1600px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    min-height: 900px;
+  }
+  
+  .analitics-box {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 410px);
+    /* grid-template-rows: 370px 370px; */
+    /* added a line below */
+    grid-auto-rows: auto;
+    justify-content: center; /* Center grid items horizontally */
+  }
+  
+  .analitics-box > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+    border-radius: 8px;
+  /*   background-color: #f0f0f0; */
+    background: linear-gradient(to bottom right, #4B0082,#FF69B4,#E30B5C);
+    width: 410px;
+    height: auto;  
+    /* changeed height. */
+    font-family: American Typewriter; 
+  }
+  
+  .analitics-box > div:nth-child(odd) {
+  /*   background-color: white; */
+    background: linear-gradient(to bottom right, #00308F, #0000FF,#FFD700 );
+  }
+  
+  .analitics-box > div h6,
+  .analitics-box > div p {
+    text-align: center; /* Center text within the box */
+    margin: 0; /* Remove default margins */
+  }
+  
+  .DSPbu {
+      padding:8px;
+      font-family: American Typewriter; 
+      border-radius:6px;
+      background: linear-gradient(to bottom right, #FFFFFF, #EDEADE, #FFF5EE);
+      color:#228B22;
+      font-size:20px;
+  }
+  
+  .MSPbu {
+      padding:8px;
+      font-family: American Typewriter; 
+      border-radius:6px;
+      background: linear-gradient(to bottom right, #FFFFFF, #EDEADE, #FFF5EE);
+      color:#228B22;
+      font-size:20px;
+  }

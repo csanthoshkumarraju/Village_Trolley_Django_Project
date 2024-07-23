@@ -1,0 +1,132 @@
+.neargui {
+    font-size:27px;
+    color:#008000;
+    padding:15px;
+  }
+  
+  .nearby_section {
+     padding: 25px;
+     background: linear-gradient(to bottom right, #7FB3D5, #27AE60, #154360);
+     text-align: center;
+     height:auto;
+  }
+  
+  .nearby_box {
+     margin: 0 auto;
+     width: 80%;
+     max-width: 1020px;
+     height: auto; /* Adjusted height to fit content */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-color: black;
+     border-radius: 8px;
+     background: linear-gradient(to bottom right, #D2B4DE, #EDBB99, #FCF3CF);
+     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+     padding: 20px;
+  }
+  
+  .nearby_header {
+     font-size: 30px;
+     color: black;
+     margin-top: 0; /* Remove default margin */
+  }
+  
+  .search-container1 {
+     margin-bottom: 15px;
+     margin-top: 15px; /* Move search box closer to the top */
+     position: relative;
+     display: inline-block;
+  }
+  
+  .product-search1 {
+     width: 200px;
+     padding: 10px 10px 10px 10px;
+     font-size: 14px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     box-sizing: border-box;
+  }
+  
+  .search-button1 {
+     position: absolute;
+     margin-right: 100px;
+     top: 5px;
+     padding: 10px;
+     background-color: #4CAF50;
+     border: none;
+     color: white;
+     cursor: pointer;
+     border-radius: 0 5px 5px 0;
+  }
+  
+  .search-button1 i {
+     font-size: 16px;
+  }
+  
+  .nearbyhe {
+     font-size: 18px;
+     margin: 10px 0;
+     white-space: nowrap; /* Prevent wrapping */
+  }
+  
+  .store-details {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 80%; /* Adjust width for store details */
+     max-width: 600px; /* Limit maximum width */
+     margin-top: 20px; /* Increase margin top for spacing */
+     font-size:25px;
+  }
+  
+  
+  .store-item {
+     margin: 5px 0;
+     padding: 5px;
+     background-color: #f2f2f2;
+     border-radius: 5px;
+     text-align: center;
+     width: 140%;
+     box-sizing: border-box;
+     height: 40px; /* Set the height to 32px */
+     display: flex; /* Use flexbox for flexible layout */
+     align-items: center; /* Center align items vertically */
+     justify-content: center; /* Center align items horizontally */
+  }
+  
+  .store-item p {
+     margin: 0; /* Remove default margin */
+     font-size: 20px; /* Adjust font size as needed */
+     white-space: nowrap; /* Prevent wrapping of text */
+  }
+  
+  
+  
+  .nearbyhe u {
+          white-space: pre;
+      }
+  .store-item {
+    white-space: pre;
+  }
+
+.DSPbu {
+   color:red;
+   width: auto;
+   height: auto;
+   font-size: 22px;
+   border: 2px solid #3FFF00;
+   border-radius:8px;
+   text-decoration: none; 
+   display: inline-block;
+   background-color: #E1EBEE;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.DSPbu:hover {
+   background-color: #6050DC; 
+   color: #ffffff; 
+   border-color: #000000; 
+}
+

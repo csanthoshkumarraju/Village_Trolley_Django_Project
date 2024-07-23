@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+<section class="Login">
+    <div class="loginbox">
+         <h2 class="SOLH">Customer login</h2>
+         <form>
+           <div class="form-group1">
+              <label for="pno">Phone Number :</label>
+              <input type="tel" id="pno" name="pno" placeholder="Enter Your Phone Number">
+          </div>
+           <div class="form-group1">
+              <label for="passwd">Password :</label>
+              <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
+          </div>
+         </form>      
+         
+         <button type="button" class="join-button">Login</button>
+         <p class="fpp">Forgot your password? Don't worry!. Please <a href="{% url 'cust_reset_pwd' %}" class="rplogin-link">Reset password</a></p>
+      <p class="fpp">Don't have an account? Please <a href="{% url 'customer_register' %}" class="rplogin-link">Join us!</a></p>
+    </div>
+</section>
+{% endblock %}

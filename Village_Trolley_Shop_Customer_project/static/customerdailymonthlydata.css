@@ -1,0 +1,126 @@
+.DMSPsec {
+    padding:30px;
+    background: linear-gradient(to bottom right, #CCCCFF, #C3B1E1, #E0B0FF);
+    height:auto;
+    
+}
+ 
+.DMSPbox {
+   width:1200px;
+   margin:0 auto;
+   height:auto;
+   background: rgba( 165, 6, 232, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );  
+}
+
+.DMSPbox {
+ display: grid;
+ grid-template-columns: 1fr 1fr; 
+ gap: 20px;
+ font-family:Bradley Hand;
+}
+
+.daily, .monthly {
+ flex-direction: column;
+ align-items:center;
+ padding: 10px;
+ display:flex;
+ justify-content:center;
+ 
+}
+
+.DSPH , .MSPH{
+   white-space:pre;
+   font-size:28px;
+   color:blue;
+}
+.DSPP, .MSPP {
+ white-space:pre;
+ font-size:26px;
+ color:white;
+ border: 1.5px solid #800080;
+}
+
+.DSPBH, .MSPBH {
+    font-size:34px;
+    color:#FF5733;
+}
+
+.DMASCH {
+ color:#FF1493;
+ padding:15px;
+ font-family:Verdana;
+ text-align: center;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container input[type="text"] {
+  width: 400px;
+  padding: 12px;
+  border: 2px solid #39FF14;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 16px;
+  color: purple;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input[type="text"]::placeholder {
+  color: #999;
+}
+
+.input-container input[type="text"]:focus {
+  border-color: #8e44ad;
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* .search-button i {
+  color: #999; 
+} */
+
+.container-unique {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.white-box-unique {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-unique {
+  text-align: left;
+}
+
+.text-unique p {
+  margin: 5px 0;
+  font-size: 21px;
+  font-weight: bold;
+  background: linear-gradient(to bottom right, red, blue, green,orange,gold);
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent;
+}
+
+

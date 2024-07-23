@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'lowstockproducts.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+
+
+<section class="lowstockproducts">
+    <div class="lowstockbox">
+      <h5 class="lowstockhead"><i class="fa-solid fa-battery-quarter"></i> Low Stock Products</h5>
+      <div class="lowstocklist">
+          <p>Oil - 5</p>
+          <p>Drinks - 10</p>
+          <p>Eggs - 50 </p>
+          <p>Soaps - 10</p>
+          <p>Paste - 10</p>
+          <p>Paste - 10</p>
+          <p>Paste - 10</p>
+          <p>Paste - 10</p>
+          <p>Paste - 10</p>
+          <p>Paste - 10</p>
+          <p>Paste - 10</p>
+          <button class="lowstkbut">Send Remainder</button>
+      </div>
+    </div>
+ </section>
+
+ {% endblock %}

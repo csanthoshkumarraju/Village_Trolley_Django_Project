@@ -1,0 +1,234 @@
+.home_page {
+  background-color: #ADBBDA;
+  min-height: 100vh;
+  /* adding max height */
+  max-height: auto;
+}
+.shopbox{
+  width:560px; 
+  float:left; 
+  background: #F5F2EB; 
+  height: auto;
+  margin: 20px;
+  padding-left: 80px;
+  padding-top: 20px;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius:8px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+
+.FSObox {
+    margin-top: 12px;
+    margin-left:130px;
+}
+
+.FSOlist {
+    margin-top: 0; /* Ensure no default margin affects positioning */
+}
+
+.FSObutton {
+    margin-bottom: 18px;
+    margin-left:150px;
+}
+.customerbox {
+  width:560px; 
+  height: auto; 
+  float:right; 
+  background: #F5F2EB;
+  margin: 20px;
+  padding-left: 110px;
+  padding-top: 20px;
+  border-radius:8px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.FSOlist {
+  list-style : none;
+  margin-top:-18px;
+}
+
+.FSOlist li {
+    color: #191970; 
+/*    #033165  */
+    line-height: 1.2;
+    font-size: 22px;
+    font-family: Georgia;
+    margin-right:50px;
+    text-align: justify;
+}
+
+
+/*  */
+.FClist {
+  margin-top: 0px;
+  list-style : none;
+}
+
+
+.FClist li {
+    color: #191970; 
+    line-height: 1.2;
+    font-size: 22px;
+    font-family: Georgia;
+    margin-right:60px;
+    text-align: justify;
+}
+/*  */
+
+
+/*  */
+/*  */
+.FCbox {
+  margin-left:140px;
+}
+/*  */
+
+/*  */
+.FSObox ,.FCbox{
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  background-size: 100%;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 24px;
+  height: 40px;
+  justify-content: center;
+  line-height: 1.5;
+  list-style: none;
+  overflow: hidden;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .10s, transform .10s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  
+  /* Adjusted positioning */
+  position: relative; /* Ensure positioning context */
+  top: -15px; /* Move 10px up */
+  left: -30px; /* Move 10px left */
+}
+
+.FSObox:focus ,.FCbox:focus{
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.FSObox:hover,.FCbox:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.FSObox:active, .FCbox:active{
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.analitics-box p {
+  margin: 5px 0; /* Adjust paragraph margins */
+}
+/*  */
+
+
+/*  */
+/*  */
+
+
+/* Updated CSS */
+
+
+.FSObutton {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat, #004dff;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c), calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+  
+  /* Updated properties */
+  font-size: 1.7rem; /* Decrease font size by 3px */
+  padding: 0.08em 0.3em; /* Adjusted padding for a slightly smaller height */
+  margin-left: 125px; /* Move button 30px to the right */
+  border-radius: 2px; /* Apply border radius of 2px */
+}
+
+.FSObutton:hover,
+.FSObutton:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.FSObutton:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+.FSObutton {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Basic reset and styling */
+.Notesec {
+  margin: 0;
+  
+}
+
+.note {
+  background-color: #F9F6EE;
+  color: red;
+  padding: 10px;
+  /* border-radius: 5px; */
+  position: relative;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  font-size:25px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.note-text {
+  display: inline-block;
+  margin-right: 40px; 
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 20px;
+  position: absolute;
+  right: 40px;
+  top: 11px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: darkred;
+}

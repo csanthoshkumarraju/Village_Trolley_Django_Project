@@ -1,0 +1,91 @@
+.footer {
+    background-color: #282C35;
+    color: white;
+    text-align: center;
+    /* padding: 10px 0; */
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+/*     z-index: 1000; Ensure the footer is above other content */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 10px; /* Adjust gap between grid items */
+}
+
+.footer-item {
+    padding: 10px;
+}
+
+.footer-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-item ul li {
+    margin-bottom: 5px;
+}
+
+.copy {
+    grid-column: 1 / -1; /* Span across all columns */
+    text-align: center;
+    color: green;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.copy p {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.Footer_Heading {
+  color:#FFDEAD;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.footer_links {
+  text-decoration: underline;
+  color:#F9F6EE;
+}
+
+.footer_links:hover {
+  color: #00FF00; 
+}
+
+.F_icons {
+  font-size: 30px;
+  color:#F9F6EE;
+}
+
+.fa-mobile-button, .fa-envelope , .fa-whatsapp , .fa-instagram , .fa-facebook , .fa-twitter {
+  color:#F9F6EE;
+}
+
+.fa-mobile-button:hover {
+    color: #2196F3; 
+}
+
+.fa-envelope:hover{
+  color: #D14836;
+}
+
+.fa-whatsapp:hover{
+  color: #25D366;
+}
+
+.fa-instagram:hover{
+  color:#E4405F;
+}
+
+.fa-facebook:hover{
+  color:#1877F2;
+}
+
+.fa-twitter:hover{
+  color: #1DA1F2;
+}

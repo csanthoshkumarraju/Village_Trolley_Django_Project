@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'nearbystores.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+
+<section class="nearby_section">
+    <div class="nearby_box">
+       <div style="text-align: center; padding: 15px;">
+          <h3 class="nearby_header">Nearby Stores</h3>
+          <button class="DSPbu" onclick="window.location.href='/custdmhist'">View Daily and Monthly Purchases</button>
+       </div>
+       <div class="search-container1">
+          <input type="text" id="productNameSearch" class="product-search1" placeholder="Find the Nearby Stores">
+          <button class="search-button1"><i class="fa fa-search"></i></button>
+          <p class="neargui">To check the prices and give ratings, click on store names.</p>
+          {% comment %} <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">View Daily and Monthly Purchases</button> {% endcomment %}
+         </div>
+       <div style="text-align: center; padding: 15px;">
+          <h4 class="nearbyhe"><u>Click on store name to get shop details  </u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Village Name</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Shop Rating 1 - 5 </u></h4>
+ <!--          <h4 class="nearbyhe"><u>Store Name | Village | Rating</u></h4> -->
+       </div>
+       <div class="store-details"> 
+          <div class="store-item">
+             <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; abc gfer gt &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Village &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 5 <i class="fa-solid fa-star"></i></p>
+          </div>
+         <div class="store-item">
+          <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+          </div>
+      <div class="store-item">
+      <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+          </div>
+          <div class="store-item">
+            <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="store-item">
+               <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+               </div>
+               <div class="store-item">
+                  <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+                  </div>
+                  <div class="store-item">
+                     <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+                     </div>
+                     <div class="store-item">
+                        <p><a href="{% url 'shopproducts' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| blr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+                        </div>
+       </div>
+    </div>
+ </section>
+
+ {% endblock %}

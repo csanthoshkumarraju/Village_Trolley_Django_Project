@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Village Trolley</title>
+  <link rel="shortcut icon" type="image/png" href="{% static '/VTIcon.png' %}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  {% block css %}
+  <!-- Link to home-specific CSS -->
+
+  {% endblock css%}
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Link Bootstrap CSS -->
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+  <title>Village Trolley</title>
+<body style = "margin:0">
+    {% include "nav.html" %}
+    
+    {% block content %}
+    
+
+    {% endblock %}
+    
+    {% include "footer.html" %}
+
+
+
+</body>
+</html>

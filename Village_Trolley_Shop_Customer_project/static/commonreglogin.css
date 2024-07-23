@@ -1,0 +1,46 @@
+
+.container {
+    display: flex;
+    max-width: 800px;
+    background-color: #E6E6FA;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Monaco;
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:300px;
+    padding:30px;
+}
+
+/* Left and right sections */
+.left, .right {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Heading styles */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* List styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Link styles */
+.register-link, .login-link {
+    display: block;
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.register-link:hover, .login-link:hover {
+    color: red; 
+}

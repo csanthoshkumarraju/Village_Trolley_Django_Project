@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Village Trolley</title>
     <!-- Load static and i18n tags if needed -->
     {% load static %}
     {% load i18n %}
@@ -11,7 +11,8 @@
     {% block css %}
         <link rel="stylesheet" href="{% static 'introduction.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    {% endblock css %}
+        <link rel="shortcut icon" type="image/png" href="{% static '/VTIcon.png' %}">
+        {% endblock css %}
 </head>
 <body>
 
@@ -676,6 +677,407 @@ setInterval(function() { updateTime(); }, 60000);
         </div>
     </section>
     
+<section class="nearby_section">
+  <div class="nearby_box">
+      <div style="text-align: center; padding: 15px;">
+        <h3 class="nearby_header">Nearby Stores</h3>
+        <button class="DSPbu">View Daily and Monthly Purchases</button>
+      </div>
+      <div class="search-container1">
+        <input type="text" id="productNameSearch" class="product-search1" placeholder="Find the Nearby Stores">
+        <button class="search-button1"><i class="fa fa-search"></i></button>
+        <p class="neargui">To check the prices and give ratings, click on store names.</p>
+        {% comment %} <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">View Daily and Monthly Purchases</button> {% endcomment %}
+      </div>
+      <div style="text-align: center; padding: 15px;">
+        <h4 class="nearbyhe"><u>Click on store name to get shop details  </u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Village Name</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Shop Rating 3 - 5 </u></h4>
+      </div>
+      <div class="store-details"> 
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Bangalore &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 5 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Mumbai &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Delhi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 3 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Kolkata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 3 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Chennai &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 2.5 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Hyderabad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Pune &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 5 <i class="fa-solid fa-star"></i></p>
+        </div>
+        <div class="store-item">
+            <p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Shop Name 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Ahmedabad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 3 <i class="fa-solid fa-star"></i></p>
+        </div>
+      </div>
+  </div>
+</section>
+ 
+<section class="shopproductsection">
+  <div class="shopproductsectionbox">
+      <h1 class="spshead">Abc Products</h1>
+    
+    <div class="search-container">
+<input type="text" id="productNameSearch" class="product-search1" placeholder="Find the products">
+<button class="search-button1"><i class="fa fa-search"></i></button>
+</div>
+
+<div class="rating-container">
+<input type="number" class="input-field" placeholder="Enter your rating from 0 - 5 ">
+<button type="submit" class="submit-button"><b>Submit Rating</b></button>
+</div>
+
+    
+    
+    
+    
+
+      <div>
+          <p class="pdbox"><b>  Product Name          |     Price     |               Quantity  </b></p>
+          <p class="pdbox">   Rice           |     ₹ 75     |                 25  </p>
+          <p class="pdbox">   Milk           |     ₹ 50     |                 15  </p>
+          <p class="pdbox">   Bread          |     ₹ 30     |                 20  </p>
+          <p class="pdbox">   Apples         |     ₹ 90     |                 35  </p>
+          <p class="pdbox">   Pasta          |     ₹ 65     |                 18  </p>
+          <p class="pdbox">   Cheese         |     ₹ 80     |                 30  </p>
+          <p class="pdbox">   Eggs           |     ₹ 45     |                 12  </p>
+          <p class="pdbox">   Yogurt         |     ₹ 55     |                 17  </p>
+          <p class="pdbox">   Tomatoes       |     ₹ 40     |                 10  </p>
+
+      </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="left">
+      <h2 class="heading">Shop Owner</h2>
+      <ul>
+          <li><a href="#" class="register-link"><u>Register</u></a></li>
+          <li><a href="#" class="login-link"><u>Login</u></a></li>
+      </ul>
+  </div>
+  <div class="right">
+      <h2 class="heading">Customer</h2>
+      <ul>
+          <li><a href="#" class="register-link"><u>Register</u></a></li>
+          <li><a href="#" class="login-link"><u>Login</u></a></li>
+      </ul>
+  </div>
+</section>
+
+
+<section>
+  <nav class="navbar navbar-custom">
+      <div class="VT_logo">
+          <img src="{% static 'fotor-2024062021484.png' %}" style="width: 100px; height: 100px;" alt="VT Logo">
+      </div>
+      
+      <div class="navbar-title">
+          <span style="font-weight: bold; 
+                      background: linear-gradient(to right, #F6FF00,#ff3737,purple); 
+                      -webkit-background-clip: text; 
+                      color: transparent;
+                      font-family: 'Playfair Display', serif; font-style: italic; ">
+              Village Trolley
+          </span>
+      </div>
+
+      <div class="navbar-links">
+          <a href="#"><u>Home</u></a>
+          <a href="#"><u>Daily monthly data</u></a>
+          {% comment %} <a href="#"><u> </u> </a>
+          <a href="#"><u> </u></a> {% endcomment %}
+
+          <!-- Google Translate Element -->
+          <div id="google_translate_element"></div>
+          <script>
+              function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+          </script>
+          <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+          <!-- Uncomment below to add Language link -->
+          {% comment %} <!-- <a href="{% url 'home' %}">Language</a> --> {% endcomment %}
+
+          <a href="#"><u>Nearby Stores</u></a>
+      </div>
+
+      <div class="user-section">
+          <div class="user-info">
+              <h2 class="W">Welcome guest!</h2>
+              <div class="login-register">
+                  <a class="L" href="#"><u>Login</u></a>
+                  <span>|</span>
+                  <a class="R" href="#"><u>Register</u></a>
+              </div>
+          </div>
+          <i class="fa fa-circle-user"></i>
+      </div>
+  </nav>
+</section>
+
+
+<section class="SORegister">
+  <div class="SORBox">
+      <h2 class="SORH">Customer Registration</h2>
+     <form>
+         <div class="form-group">
+             <label for="fname">First Name :</label>
+             <input type="text" id="fname" name="fname" placeholder="First name">
+         </div>
+         <div class="form-group">
+             <label for="lname">Last Name :</label>
+             <input type="text" id="lname" name="lname" placeholder="Last name">
+         </div>
+       
+         {% comment %} <div class="form-group">
+             <label for="lname">Shop Name :</label>
+             <input type="text" id="lname" name="lname" placeholder="Shop name">
+         </div> {% endcomment %}
+        <div class="form-group">
+             <label for="email">Mail Id :</label>
+             <input type="email" id="email" name="email" placeholder="Email ID">
+         </div>
+         <div class="form-group">
+             <label for="pno">Phone Number :</label>
+             <input type="tel" id="pno" name="pno" placeholder="Phone Number">
+         </div>
+         
+         <div class="form-group">
+             <label for="ast">Street Address :</label>
+             <input type="text" id="ast" name="ast" placeholder="Street Address ">
+         </div>
+         <div class="form-group">
+             <label for="village">Village :</label>
+             <input type="text" id="village" name="village" placeholder="Village name">
+         </div>
+         <div class="form-group">
+             <label for="mandal">Mandal :</label>
+             <input type="text" id="mandal" name="mandal" placeholder="Mandal name">
+         </div>
+         <div class="form-group">
+             <label for="city">City :</label>
+             <input type="text" id="city" name="city" placeholder="City Name">
+         </div>
+         <div class="form-group">
+             <label for="state">State :</label>
+             <input type="text" id="state" name="state" placeholder="State Name">
+         </div>
+         <div class="form-group">
+             <label for="pc">Pin Code :</label>
+             <input type="number" id="pc" name="pc" placeholder="Pin Code">
+         </div>
+         <div class="form-group">
+             <label for="passwd">Password :</label>
+             <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
+         </div>
+     </form>
+
+    <button type="button" class="join-button">Join Us</button>
+    <p class="rloginp">Already have an account. Please <a href="#" class="ralogin-link">Login</a></p>
+  </div>
+</section>
+
+<section class="Login">
+  <div class="loginbox">
+       <h2 class="SOLH">Customer login</h2>
+       <form>
+         <div class="form-group1">
+            <label for="pno">Phone Number :</label>
+            <input type="tel" id="pno" name="pno" placeholder="Enter Your Phone Number">
+        </div>
+         <div class="form-group1">
+            <label for="passwd">Password :</label>
+            <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
+        </div>
+       </form>      
+       
+       <button type="button" class="join-button">Login</button>
+       <p class="fpp">Forgot your password? Don't worry!. Please <a href="#" class="rplogin-link">Reset password</a></p>
+    <p class="fpp">Don't have an account? Please <a href="#" class="rplogin-link">Join us!</a></p>
+  </div>
+</section>
+
+<section class="resetpwdsec">
+  <div class="card">
+      <h2 class="resethead">Customer Reset Password</h2>
+      <form>
+          <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Please enter your registered mobile number." required class="styled-input">
+          <input type="password" id="password" name="password" placeholder="Please enter your new password here" required class="styled-input">
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Please enter your new password here to confirm." required class="styled-input">
+      </form>
+      <button type="submit" class="reset-button">Reset Password</button>
+  </div>
+</section>
+
+<section class="DMSPsec">
+  <h1 class="DMASCH"> Customer NAME </h1>
+  <div class="DMSPbox">
+     <div class="daily">
+        <h2 class="DSPBH"><u>Daily Purchasing Products</u></h2>
+       <div class="input-container">
+<input type="text" placeholder="Enter the date Ex:- 15-07-2024 ">
+<button type="button" class="search-button">
+  <i class="fas fa-search fa-lg"></i>
+</button>
+</div>
+        <h5 class="DSPH"> <u><i>   Product Name          Quantity         Price</u></i></h5>
+        <p class="DSPP">  Rice                    20         ₹ 200 </p>
+        <p class="DSPP">  Milk                    5          ₹ 50 </p>
+        <p class="DSPP">  Bread                   2          ₹ 30 </p>
+        <p class="DSPP">  Eggs                    12         ₹ 60 </p>
+        <p class="DSPP">  Cheese                  1          ₹ 150 </p>
+        <p class="DSPP">  Apples                  6          ₹ 120 </p>
+        <p class="DSPP">  Bananas                 8          ₹ 80 </p>
+        <p class="DSPP">  Chicken                 2          ₹ 300 </p>
+        <p class="DSPP">  Yogurt                  3          ₹ 70 </p>
+        
+       
+<div class="container-unique">
+<div class="white-box-unique">
+  <div class="text-unique">
+    <p>TOTAL AMOUNT PURCHASED TODAY:<b> ₹  100000</b></p>
+   
+  </div>
+</div>
+</div>
+
+       
+     </div>
+     <div class="monthly">
+        <h2 class="MSPBH"><u>Monthly Purchasing Products</u></h2>
+       <div class="input-container">
+<input type="text" placeholder="Filter by month and year as 07-2024">
+<button type="button" class="search-button">
+  <i class="fas fa-search fa-lg"></i>
+</button>
+</div>
+        <h5 class="MSPH"> <u><i>   Product Name           Quantity          Price</u></i></h5>
+        <p class="MSPP">   Potatoes                15         ₹ 100 </p>
+                <p class="MSPP">   Tomatoes                10         ₹ 80 </p>
+                <p class="MSPP">   Carrots                 8          ₹ 60 </p>
+                <p class="MSPP">   Onions                  12         ₹ 40 </p>
+                <p class="MSPP">   Cucumbers               7          ₹ 50 </p>
+                <p class="MSPP">   Lettuce                 3          ₹ 70 </p>
+                <p class="MSPP">   Bell Peppers            4          ₹ 120 </p>
+         <div class="container-unique">
+<div class="white-box-unique">
+  <div class="text-unique">
+    <p>TOTAL AMOUNT PURCHASED THIS MONTH:<b> ₹  100000</b></p>
+  </div>
+</div>
+</div>
+     </div>
+  </div>
+</section>
+
+<section class="KMDIsec">
+  <div class="KMDIseccont">
+         <h1 class="KMIDhead"> <b> Know More / Digital Inventory </b></h1>
+         <h2 class="FSObox1">For Shop Owners</h2>
+         <ul class = "KMDIlist">
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Forgot the price and product location; don't worry, we provide.</li>
+         
+         <li><i class="fa-solid fa-circle-arrow-right"></i> You can easily add more products at a time using the table interface.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> No delays in selling and billing; high-speed work.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Accurate bill calculations, fast and error-free.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Don't worry about data security.we provide high security for your data.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> We ensure high security and privacy for your data.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Instant billing insights: price, quantity, total.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Stock alerts: low stock notifications.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Send automated messages to dealers.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> List of the most and least selling products.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Actionable analytics Daily, Monthly, Yearly: Profit, loss reports</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Great search functionality. Find products with ease.</li>
+         <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
+       </ul>
+
+   <h2 class="FSObox1">For Customers</h2>
+   <ul class = "KMDIlist">
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Explore and choose the best nearby shop for you.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Utilize the great search feature for quickly finding shops.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Find the price and stock availability of products in the shop from anywhere.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Compare the prices of products in nearby stores.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Choose the best shop near you and save money.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Check product availability anywhere: Access information conveniently.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Save valuable time and money with informed decisions.</li>
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Find all the data here: Access comprehensive information.</li> 
+     <li><i class="fa-solid fa-circle-arrow-right"></i> Choose the shop based on reviews.</li>
+   </ul>
+   
+  
+  </di>
+</section>
+
+<section>
+  <footer class="footer">
+      <div class="footer-item">    
+          <ul>
+              <li class="Footer_Heading">About Us</li>
+              <a class= "footer_links" href="#">Know More</a>
+          </ul>
+      </div>
+    <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Contact Us</li>
+              <div class="F_icons">
+          <a href="tel:+1234567890"><i class="fa-solid fa-mobile-button"></i></a>
+          <a href="https://www.gmail.com/"><i class="fa-solid fa-envelope"></i></i></a>
+          <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></i></a>
+                   
+                   
+                   
+              </div>
+          </ul>
+      </div>
+    <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Follow Us On</li>
+              <div class="F_icons">
+                
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                   
+                                   
+              </div>
+          </ul>
+      </div>
+    <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Features</li>
+              <a class= "footer_links" href="#">Digital Inventory</a>
+          </ul>
+      </div>
+      <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Help</li>
+              <a class= "footer_links" href="#">User Guide</a>
+          </ul>
+      </div>
+      <div class="copy">
+          <p>&copy; 2024 - <span id="currentYear"></span> Village Trolley. All rights reserved.</p>
+        <p> Village Trolley, crafted with love <i class="fa-solid fa-heart"></i> by Chiluru Santhosh Kumar Raju. </p>
+         <p>Grateful to you for choosing @Village Trolley.</p>
+      </div>
+      </div>
+      </div>
+  </footer>
+  <script>
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  </section>
+
 
 </body>
 </html>

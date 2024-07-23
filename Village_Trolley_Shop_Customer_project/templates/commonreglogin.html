@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'commonreglogin.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+
+<section class="container">
+    <div class="left">
+        <h2 class="heading">Shop Owner</h2>
+        <ul>
+            <li><a href="{% url "register" %}" class="register-link"><u>Register</u></a></li>
+            <li><a href="{% url "login" %}" class="login-link"><u>Login</u></a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <h2 class="heading">Customer</h2>
+        <ul>
+            <li><a href="{% url "customer_register" %}" class="register-link"><u>Register</u></a></li>
+            <li><a href="{% url "customer_login" %}" class="login-link"><u>Login</u></a></li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+<title>Home - Village Trolley</title>
+
+
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+
+<section class="Notesec">
+  <div id="note" class="note">
+      <span class="note-text">Note:- Please Use desktop version for better experience.</span>
+      <button class="close-btn" onclick="closeNote()"><i class="fa-solid fa-circle-xmark"></i></button>
+  </div>
+
+  <script>
+      function closeNote() {
+          document.getElementById('note').style.display = 'none';
+      }
+  </script>
+</section>
+
+<section class="mainpage">
+    <div class="home_page">
+        <div class="shopbox">
+             <h2 class="FSObox">For Shop Owners</h2>
+             <ul class = "FSOlist">
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Forgot the price and product location; don't worry, we provide.</li>
+               
+               <li><i class="fa-solid fa-circle-arrow-right"></i> You can easily add more products at a time using the table interface.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> No delays in selling and billing; high-speed work.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Accurate bill calculations, fast and error-free.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Don't worry about data security.we provide high security for your data.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> We ensure high security and privacy for your data.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Instant billing insights: price, quantity, total.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Stock alerts: low stock notifications.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Send automated messages to dealers.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> List of the most and least selling products.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Actionable analytics Daily, Monthly, Yearly: Profit, loss reports</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Great search functionality. Find products with ease.</li>
+               <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
+             </ul>
+             <a href="{% url 'register' %}" class="FSObutton" role="button">
+              <span class="text">Get Started</span>
+          </a>
+        </div>
+   
+       <div class="customerbox">
+         <h2 class="FCbox">For Customers</h2>
+         <ul class = "FClist">
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Explore and choose the best nearby shop for you.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Utilize the great search feature for quickly finding shops.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Find the price and stock availability of products in the shop from anywhere.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Compare the prices of products in nearby stores.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Choose the best shop near you and save money.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Check product availability anywhere: Access information conveniently.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Save valuable time and money with informed decisions.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Find all the data here: Access comprehensive information.</li> 
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Choose the shop based on reviews.</li>
+           <li><i class="fa-solid fa-circle-arrow-right"></i> Daily and monthly buying analysis.</li>
+         </ul>
+         <a href="{% url 'customer_register' %}" class="FSObutton" role="button">
+          <span class="text">Get Started</span>
+      </a>
+       </div>
+     </div>
+
+</section>
+{% endblock content %}

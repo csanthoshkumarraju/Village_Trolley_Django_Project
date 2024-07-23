@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'analytics.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+
+
+<section class="analitycs_section">
+    <div class="analitics-box">  
+      <div>
+        <h5><u>Daily</u></h5>
+        <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">Daily selling products</button>
+        <p id="current-date"></p>
+        <p id="current-time"></p>
+        <p>Sold Today : ₹ 1000</p>
+        <p>Products sold: 100</p>
+        <p>Profit/Loss : ₹ 30000</p>
+      </div>
+      <div>
+        <h5><u>Monthly</u></h5>
+        <button class="MSPbu" onclick="window.location.href='/daily_monthly_data'">Monthly selling products</button>
+        <p id="current-month"></p>
+        <p>Sold This month : ₹ 1000</p>
+        <p>Products sold: 100</p>
+        <p>Profit/Loss : ₹ 300000000</p>
+      </div>
+      <div>
+        <h5><u>Yearly</u></h5>
+        
+        <p id="current-year"></p>
+        <p>Sold This Year : ₹ 1000</p>
+        <p>Products sold: 100</p>
+        <p>Profit/Loss : ₹ 3000000000</p>
+      </div>
+      <div>
+          <h5><u>Total Profit</u></h5>
+          <p>Investment: ₹ 50000</p>
+          <p>Return : ₹ 80000</p>
+          <p>If cond Profit : ₹ 30000</p>
+      </div>
+      <div>
+        <h5><u>Total Loss</u></h5>
+          <p>Investment: ₹ 50000</p>
+          <p>Return : ₹ 80000</p>
+          <p>If cond Loss : ₹ 30000</p>
+      </div>
+      <div>
+        <h5> <u>Most & Least selling products</u></h5>
+        
+        <p>Most :- Oil,Eggs,Milk, </p>
+        <p>Chocolates,Drinks</p>
+        <p>Least :- Rice,Masala,<p>
+        </p>Jaggery,Dals</p>
+        </div>
+    </div>
+  </section>
+
+
+  <script>
+    function updateTime() {
+      // Create a new Date object for current time
+      var currentTime = new Date();
+  
+      // Calculate IST offset in minutes (UTC +5:30)
+      var ISTOffset = 330;
+  
+      // Calculate IST time using the provided method
+      var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentTime.getTimezoneOffset()) * 60000);
+  
+      // Extract components of IST time
+      var hours = ISTTime.getHours();
+      var minutes = ISTTime.getMinutes();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+  
+      // Convert hours from 24-hour to 12-hour format
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+  
+      // Ensure minutes are two digits
+      minutes = (minutes < 10 ? '0' : '') + minutes;
+  
+      // Build the time string in 12-hour format with AM/PM
+      var timeString = hours + ':' + minutes + ' ' + ampm;
+  
+      // Build the date string in DD/MM/YYYY format
+      var dateString = ISTTime.toLocaleDateString('en-IN');
+  
+      // Update the HTML elements
+      document.getElementById('current-time').textContent = 'Time : ' + timeString;
+      document.getElementById('current-date').textContent = 'Date : ' + dateString;
+  }
+  
+  // Call updateTime function initially to avoid delay
+  updateTime();
+  
+// Update time every minute (60000 milliseconds)
+setInterval(function() { updateTime(); }, 60000);
+
+    </script>
+    
+    <script>
+    function updateMonthAndYear() {
+        // Create a new Date object for current time
+        var currentTime = new Date();
+    
+        // Extract current month and year
+        var month = currentTime.toLocaleString('en-US', { month: 'long' });
+        var year = currentTime.getFullYear();
+    
+        // Display month and year in the HTML elements
+        document.getElementById('current-month').textContent = ' Month: ' + month.toUpperCase();
+        document.getElementById('current-year').textContent = ' Year: ' + year;
+    }
+    
+    // Call updateMonthAndYear function initially to set the initial display
+    updateMonthAndYear();
+    
+    // This script does not update every second since month and year don't change frequently
+    // If you need it to update periodically, use a setInterval similar to the previous examples
+    
+    </script>
+
+  {% endblock %}
