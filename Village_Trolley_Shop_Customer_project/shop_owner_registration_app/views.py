@@ -22,7 +22,7 @@ def shop_owner_registration(request):
             
             shop_owner_phone_number = form.cleaned_data['shop_owner_phone_number']
             if shop_owner_registration_model.objects.filter(shop_owner_phone_number=shop_owner_phone_number).exists():
-                messages.error(request, f'This already exists.')
+                messages.error(request, f'This phone number already exists.')
             else:
                 form.save()
                 # Redirect or perform other actions after successful form submission
