@@ -6,86 +6,28 @@
     <!-- Link to home-specific CSS -->
     <link rel="stylesheet" href="{% static 'register.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-{% endblock css%}
+    {% endblock css%}
 
 {% block content %}
 <section class="SORegister">
     <div class="SORBox">
         <h2 class="SORH">Shop Owner Registration</h2>
-       <form action="/register"  method="post">
+       <form action=""  method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="id_first_name">First Name:</label>
-            {{ form.first_name }}
-            {{ form.first_name.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_last_name">Last Name:</label>
-            {{ form.last_name }}
-            {{ form.last_name.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_shop_name">Shop Name:</label>
-            {{ form.shop_name }}
-            {{ form.shop_name.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_mail_id">Mail ID:</label>
-            {{ form.mail_id }}
-            {{ form.mail_id.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_phone_number">Phone Number:</label>
-            {{ form.phone_number }}
-            {{ form.phone_number.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_street_address">Street Address:</label>
-            {{ form.street_address }}
-            {{ form.street_address.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_village">Village:</label>
-            {{ form.village }}
-            {{ form.village.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_mandal">Mandal:</label>
-            {{ form.mandal }}
-            {{ form.mandal.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_city">City:</label>
-            {{ form.city }}
-            {{ form.city.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_state">State:</label>
-            {{ form.state }}
-            {{ form.state.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_zip_pin_code">Pin Code:</label>
-            {{ form.zip_pin_code }}
-            {{ form.zip_pin_code.errors }}
-        </div>
-        <div class="form-group">
-            <label for="id_password">Password:</label>
-            {{ form.password }}
-            {{ form.password.errors }}
-        </div>
+        {{ form.as_p }}
+        {% if field.errors %}
+            <div class="error-message">
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
         <button type="submit" class="join-button">Join Us</button>
     </form>
-    <p class="rloginp">Already have an account? Please <a href="{% url 'login' %}" class="ralogin-link">Login</a></p>
+    <p class="rloginp">Already have an account? Please <a href="#" class="ralogin-link">Login</a></p>
 </div>
  </section>
- {% if messages %}
- <div class="alert">
-     {% for message in messages %}
-         <div class="alert-message">{{ message }}</div>
-     {% endfor %}
- </div>
-{% endif %}
+
 
 {% endblock  %}
 

@@ -18,7 +18,7 @@
       height:auto;
   
     /* https://hype4.academy/tools/glassmorphism-generator */  
-      width:750px;
+      width:1150px;
       /* height:1115px; */
       margin: 30 auto;
       padding: 40px;
@@ -174,5 +174,10 @@ label {
 
 .alert-message {
   margin: 0;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
   font-weight: bold;
 }

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'introduction_app',
+    'shop_owner_registration_app',
 ]
 
 MIDDLEWARE = [

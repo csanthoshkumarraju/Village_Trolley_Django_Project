@@ -57,9 +57,9 @@
             <div class="user-info">
                 <h2 class="W">Welcome guest!</h2>
                 <div class="login-register">
-                    <a class="L" href="#"><u>Login</u></a>
+                    <a class="L" href="{% url "common_register_page" %}"><u>Login</u></a>
                     <span>|</span>
-                    <a class="R" href="#"><u>Register</u></a>
+                    <a class="R" href="{% url "common_register_page" %}"><u>Register</u></a>
                 </div>
             </div>
             <i class="fa fa-circle-user"></i>
@@ -102,7 +102,7 @@
                  <li><i class="fa-solid fa-circle-arrow-right"></i> Great search functionality. Find products with ease.</li>
                  <li><i class="fa-solid fa-circle-arrow-right"></i> Great and easy-to-use user interface.</li>
                </ul>
-               <a href="#" class="FSObutton" role="button">
+               <a href="{% url "shop_owner_registration" %}" class="FSObutton" role="button">
                 <span class="text">Get Started</span>
             </a>
           </div>
