@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('introduction_app.urls')),
     path('', include('shop_owner_registration_app.urls')),
+    path('', include('shop_owner_login_app.urls')),
+    path('', include('shop_owner_forgot_pwd_app.urls')),
 ]
 
 

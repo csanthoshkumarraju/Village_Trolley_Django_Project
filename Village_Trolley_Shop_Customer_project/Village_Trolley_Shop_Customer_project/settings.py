@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'introduction_app',
     'shop_owner_registration_app',
+    'shop_owner_login_app',
+    'shop_owner_forgot_pwd_app',
 ]
 
 MIDDLEWARE = [

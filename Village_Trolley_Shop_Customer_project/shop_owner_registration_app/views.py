@@ -26,13 +26,13 @@ def shop_owner_registration(request):
             else:
                 form.save()
                 # Redirect or perform other actions after successful form submission
-                # return redirect('login')  # Redirect to clear form data on reload
+                return redirect('shop_owner_login_view')  # Redirect to clear form data on reload
                 # print(f"Shop name: {shop_owner_shop_name}")
-                return HttpResponse('Registration successful!')
+                # return HttpResponse('Registration successful!')
 
         else:
             # Handle form errors if any
-            messages.error(request, 'Please correct the errors below.')
+            messages.error(request, 'Please correct the errors above in black color text. shop name, mail id, phone number must be not registered before. password and confirm password must be same')
     else:
         form = shop_owner_registration_form()
 

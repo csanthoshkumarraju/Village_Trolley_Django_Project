@@ -1,29 +1,154 @@
-{% extends "base.html" %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village-Trolley - Shop Owner login</title>
+
 {% block css %}
     <!-- Link to home-specific CSS -->
     <link rel="stylesheet" href="{% static 'login.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 {% endblock css%}
-
+</head>
+<body>
 {% block content %}
+
+<section>
+  <nav class="navbar navbar-custom">
+      <div class="VT_logo">
+          <img src="{% static 'fotor-2024062021484.png' %}" style="width: 100px; height: 100px;" alt="VT Logo">
+      </div>
+      
+      <div class="navbar-title">
+          <span style="font-weight: bold; 
+                      background: linear-gradient(to right, #F6FF00,#ff3737,purple); 
+                      -webkit-background-clip: text; 
+                      color: transparent;
+                      font-family: 'Playfair Display', serif; font-style: italic; ">
+              Village Trolley
+          </span>
+      </div>
+
+      <div class="navbar-links">
+          <a href="{% url "introduction" %}"><u>Home</u></a>
+          <a href="#"><u>Add Items</u></a>
+          <a href="#"><u>Bill Items </u> </a>
+          <a href="#"><u>Analytics </u></a>
+
+          <!-- Google Translate Element -->
+          <div id="google_translate_element"></div>
+          <script>
+              function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+          </script>
+          <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+          <!-- Uncomment below to add Language link -->
+          {% comment %} <!-- <a href="{% url 'home' %}">Language</a> --> {% endcomment %}
+
+          <a href="#"><u>Nearby Stores</u></a>
+      </div>
+
+      <div class="user-section">
+          <div class="user-info">
+              <h2 class="W">Welcome guest!</h2>
+              <div class="login-register">
+                  <a class="L" href="{% url "common_register_page" %}"><u>Login</u></a>
+                  <span>|</span>
+                  <a class="R" href="{% url "common_register_page" %}"><u>Register</u></a>
+              </div>
+          </div>
+          <i class="fa fa-circle-user"></i>
+      </div>
+  </nav>
+</section>
+
+
 <section class="Login">
     <div class="loginbox">
          <h2 class="SOLH">Shop Owner login</h2>
-         <form>
-           <div class="form-group1">
-              <label for="pno">Phone Number :</label>
-              <input type="tel" id="pno" name="pno" placeholder="Enter Your Phone Number">
-          </div>
-           <div class="form-group1">
-              <label for="passwd">Password :</label>
-              <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
-          </div>
-         </form>      
-         
-         <button type="button" class="join-button">Login</button>
-         <p class="fpp">Forgot your password? Don't worry!. Please <a href="{% url 'resetpwd' %}" class="rplogin-link">Reset password</a></p>
-      <p class="fpp">Don't have an account? Please <a href="{% url 'register' %}" class="rplogin-link">Join us!</a></p>
+         <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            {% if form.phone_number.errors %}
+            <p style="color: red; font-size: 27px;">{{ form.phone_number.errors }}</p>
+        {% endif %}
+        
+        {% if form.password.errors %}
+            <p style="color: red; font-size: 27px;">{{ form.password.errors }}</p>
+        {% endif %}
+            <!-- Use type="submit" instead of type="button" for form submission -->
+            <button type="submit" class="join-button">Login</button>
+          </form>
+         <p class="fpp">Forgot your password? Don't worry!. Please <a href="{% url "update_password" %}" class="rplogin-link">Reset password</a></p>
+      <p class="fpp">Don't have an account? Please <a href="{% url 'shop_owner_registration' %}" class="rplogin-link">Join us!</a></p>
     </div>
 </section>
-{% endblock %}
+
+<section>
+  <footer class="footer">
+      <div class="footer-item">    
+          <ul>
+              <li class="Footer_Heading">About Us</li>
+              <a class= "footer_links" href="#">Know More</a>
+          </ul>
+      </div>
+    <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Contact Us</li>
+              <div class="F_icons">
+          <a href="tel:+1234567890"><i class="fa-solid fa-mobile-button"></i></a>
+          <a href="https://www.gmail.com/"><i class="fa-solid fa-envelope"></i></i></a>
+          <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></i></a>
+                   
+                   
+                   
+              </div>
+          </ul>
+      </div>
+    <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Follow Us On</li>
+              <div class="F_icons">
+                
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                   
+                                   
+              </div>
+          </ul>
+      </div>
+    <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Features</li>
+              <a class= "footer_links" href="#">Digital Inventory</a>
+          </ul>
+      </div>
+      <div class="footer-item">
+          <ul>
+              <li class="Footer_Heading">Help</li>
+              <a class= "footer_links" href="#">User Guide</a>
+          </ul>
+      </div>
+      <div class="copy">
+          <p>&copy; 2024 - <span id="currentYear"></span> Village Trolley. All rights reserved.</p>
+        <p> Village Trolley, crafted with love <i class="fa-solid fa-heart"></i> by Chiluru Santhosh Kumar Raju. </p>
+         <p>Grateful to you for choosing @Village Trolley.</p>
+      </div>
+      </div>
+      </div>
+  </footer>
+  <script>
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  </section>
+
+  {% endblock %}
+</body>
+</html>
+
