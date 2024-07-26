@@ -26,7 +26,6 @@
           
     </div>
     <div class="navbar-links">
-        <a href="#"><u>Home</u></a>
         <a href="#">  <u>Add Items</u></a>
         <a href="#"> <u>Bill Items </u> </a>
         <a href="#">  <u>Analytics </u></a>
@@ -50,12 +49,14 @@
     </div>
     <div class="user-section">
         <div class="user-info">
-            <h2 class="W">Welcome guest!</h2>
-            {% comment %} <div class="login-register">
-                <a class= "L" href="#"><u>Login</u></a>
-                <span>|</span>
-                <a class= "R" href="#"><u>Register</u></a>
-            </div> {% endcomment %}
+            {% comment %} {% if shop_owner_name_instance %}
+            <h2 class="W">Welcome guest! {{ shop_owner_name_instance.shop_owner_first_name|add:" " }}{{ shop_owner_name_instance.shop_owner_last_name }}</h2>
+            {% else %}
+            <p>Name not found.</p>
+            {% endif %} {% endcomment %}
+            <div class="login-register">
+                <a class= "L" href="{% url 'shop_owner_login_view' %}"><u>Logout</u></a>
+            </div>
         </div>
         <i class="fa fa-circle-user"></i>
     </div>

@@ -10,180 +10,38 @@
 {% block content %}
 
 <section class="additems">
-    <h1 class="adih">Add items to the store</h1>
+    <h1 class="adih">
+        {{ shop_owner_first_name }} {{ shop_owner_last_name }}  Add items to the store  {{ shop_owner_shop_name }}
+    </h1>
     <div class="additemsbox">
     <h5 class="additemsguide">Enter the name of the product in the 'Product Name' field, current price of the product in 'Price' (modifiable later), specify the quantity, and indicate the location of the product. Divide the store into sections for each category and organize them sequentially to facilitate easy identification. Additionally, specify the section and exact position of the product for fast identification purposes in the designated 'Place' field.</h5>
-      
-  <div class="AISB">
-    <button type="submit" class="save-button">Save All</button>
-  </div>
-    <table class="editable-table">
-    <thead>
-      <tr>
-        <th>Product Name</th>
-        <th>Buying Price</th>
-        <th>Selling price</th>
-        <th>Quantity</th>
-        <th>Place</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="name" value="Sunflower-Oil" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="contact" value="₹ 120" class="editable-input">
-        </td>
-        <td>
-        <input type="text" name="contact" value="₹ 140" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="10" class="editable-input">
-        </td>
-        <td>
-          <input type="text" name="country" value="Oil 10" class="editable-input">
-        </td>
-      </tr>
-
-
+    <h3 style='color:red'>Enter the product details Product Name	Buying Price	Selling price	Quantity	Place and then click on Enter to add next item after adding all the items click on save all button to save the products.</h3>
+    <form method="post">
+      {% csrf_token %}
+      <table class="editable-table">
+          <thead>
+              <tr>
+                  <th>Product Name</th>
+                  <th>Buying Price</th>
+                  <th>Selling Price</th>
+                  <th>Quantity</th>
+                  <th>Place</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{ form.product_name }}</td>
+                  <td>{{ form.product_buying_price }}</td>
+                  <td>{{ form.product_selling_price }}</td>
+                  <td>{{ form.product_qunatity }}</td>
+                  <td>{{ form.product_storage_place }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <div class="AISB">
+          <button type="submit" class="save-button">Save All</button>
+      </div>
+  </form>
 
       <!-- Add more <tr> blocks as needed for additional rows -->
     </tbody>
@@ -195,4 +53,4 @@
 
   {% endblock %}
 
-   
+ 

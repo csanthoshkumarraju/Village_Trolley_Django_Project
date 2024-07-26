@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('shop_owner_registration_app.urls')),
     path('', include('shop_owner_login_app.urls')),
     path('', include('shop_owner_forgot_pwd_app.urls')),
+    path('', include('shop_owner_add_items_app.urls')),
 ]
 
 

@@ -16,7 +16,8 @@ def shop_owner_login_view(request):
                 shop_owner = shop_owner_registration_model.objects.get(shop_owner_phone_number=phone_number)
                 if shop_owner.shop_owner_password == password:  # Corrected field name
                     request.session['shop_owner_id'] = shop_owner.id  # Storing shop_owner id in session
-                    return HttpResponse('Login successful!') 
+                    # return HttpResponse('Login successful!')
+                    return redirect('shop_owner_add_items',shop_owner_id=shop_owner.id) 
                 else:
                     form.add_error(None, "Incorrect password")
             except shop_owner_registration_model.DoesNotExist:

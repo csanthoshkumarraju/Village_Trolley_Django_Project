@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'shop_owner_registration_app',
     'shop_owner_login_app',
     'shop_owner_forgot_pwd_app',
+    'shop_owner_add_items_app',
+    'nav_user_app',
 ]
 
 MIDDLEWARE = [
