@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'shop_products_data_app',
     'customer_registration_app',
     'customer_login_app',
+    'customer_reset_password_app',
 ]
 
 MIDDLEWARE = [

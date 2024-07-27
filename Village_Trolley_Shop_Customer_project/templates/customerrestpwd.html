@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+
 {% load static %}
 {% block css %}
     <!-- Link to home-specific CSS -->
@@ -7,6 +7,58 @@
 {% endblock css%}
 
 {% block content %}
+<section>
+    <nav class="navbar navbar-custom">
+        <div class="VT_logo">
+            <img src="{% static 'fotor-2024062021484.png' %}" style="width: 100px; height: 100px;" alt="VT Logo">
+        </div>
+        
+        <div class="navbar-title">
+            <span style="font-weight: bold; 
+                        background: linear-gradient(to right, #F6FF00,#ff3737,purple); 
+                        -webkit-background-clip: text; 
+                        color: transparent;
+                        font-family: 'Playfair Display', serif; font-style: italic; ">
+                Village Trolley
+            </span>
+        </div>
+  
+        <div class="navbar-links">
+            <a href="{% url "introduction" %}"><u>Home</u></a>
+            <a href="#"><u>Daily monthly data</u></a>
+            {% comment %} <a href="#"><u> </u> </a>
+            <a href="#"><u> </u></a> {% endcomment %}
+  
+            <!-- Google Translate Element -->
+            <div id="google_translate_element"></div>
+            <script>
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+            <!-- Uncomment below to add Language link -->
+            {% comment %} <!-- <a href="{% url 'home' %}">Language</a> --> {% endcomment %}
+  
+            <a href="#"><u>Nearby Stores</u></a>
+        </div>
+  
+        <div class="user-section">
+            <div class="user-info">
+                <h2 class="W">Welcome guest!</h2>
+                <div class="login-register">
+                    <a class="L" href="{% url "customer_login_fun" %}"><u>Login</u></a>
+                    <span>|</span>
+                    <a class="R" href="{% url "customer_registartion_fun" %}"><u>Register</u></a>
+                </div>
+            </div>
+            <i class="fa fa-circle-user"></i>
+        </div>
+    </nav>
+  </section>
+
+
 <section class="resetpwdsec">
     <div class="card">
         <h2 class="resethead">Customer Reset Password</h2>
@@ -14,10 +66,68 @@
             <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Please enter your registered mobile number." required class="styled-input">
             <input type="password" id="password" name="password" placeholder="Please enter your new password here" required class="styled-input">
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Please enter your new password here to confirm." required class="styled-input">
+            <button type="submit" class="reset-button">Reset Password</button>
         </form>
-        <button type="submit" class="reset-button">Reset Password</button>
+        
     </div>
 </section>
 
-
+<section>
+    <footer class="footer">
+        <div class="footer-item">    
+            <ul>
+                <li class="Footer_Heading">About Us</li>
+                <a class= "footer_links" href="#">Know More</a>
+            </ul>
+        </div>
+      <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Contact Us</li>
+                <div class="F_icons">
+            <a href="tel:+1234567890"><i class="fa-solid fa-mobile-button"></i></a>
+            <a href="https://www.gmail.com/"><i class="fa-solid fa-envelope"></i></i></a>
+            <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></i></a>
+                     
+                     
+                     
+                </div>
+            </ul>
+        </div>
+      <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Follow Us On</li>
+                <div class="F_icons">
+                  
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                     
+                                     
+                </div>
+            </ul>
+        </div>
+      <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Features</li>
+                <a class= "footer_links" href="#">Digital Inventory</a>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Help</li>
+                <a class= "footer_links" href="#">User Guide</a>
+            </ul>
+        </div>
+        <div class="copy">
+            <p>&copy; 2024 - <span id="currentYear"></span> Village Trolley. All rights reserved.</p>
+          <p> Village Trolley, crafted with love <i class="fa-solid fa-heart"></i> by Chiluru Santhosh Kumar Raju. </p>
+           <p>Grateful to you for choosing @Village Trolley.</p>
+        </div>
+        </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    </section>
 {% endblock %}

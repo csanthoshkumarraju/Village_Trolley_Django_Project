@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('shop_products_data_app.urls')),
     path('', include('customer_registration_app.urls')),
     path('', include('customer_login_app.urls')),
+    path('', include('customer_reset_password_app.urls')),
 ]
 
 
