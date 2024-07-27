@@ -25,6 +25,8 @@ urlpatterns = [
     path('', include('shop_owner_forgot_pwd_app.urls')),
     path('', include('shop_owner_add_items_app.urls')),
     path('', include('shop_products_data_app.urls')),
+    path('', include('customer_registration_app.urls')),
+    path('', include('customer_login_app.urls')),
 ]
 
 

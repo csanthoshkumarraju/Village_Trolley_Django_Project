@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'shop_owner_add_items_app',
     'nav_user_app',
     'shop_products_data_app',
+    'customer_registration_app',
+    'customer_login_app',
 ]
 
 MIDDLEWARE = [

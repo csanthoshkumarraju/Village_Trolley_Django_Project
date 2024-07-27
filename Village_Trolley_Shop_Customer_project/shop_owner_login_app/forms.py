@@ -1,8 +1,6 @@
 from django import forms
 from shop_owner_registration_app.models import shop_owner_registration_model
 
-from django import forms
-
 class shop_owner_login_form(forms.Form):
     phone_number = forms.CharField(max_length=20)
     password = forms.CharField(widget=forms.PasswordInput)

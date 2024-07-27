@@ -1,5 +1,3 @@
-{% extends "base.html" %}
-
 {% load static %}
 
 {% block css %}
@@ -7,72 +5,135 @@
     <link rel="stylesheet" href="{% static 'register.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 {% endblock css%}
- 
+
 {% block content %}
+<section>
+    <nav class="navbar navbar-custom">
+        <div class="VT_logo">
+            <img src="{% static 'fotor-2024062021484.png' %}" style="width: 100px; height: 100px;" alt="VT Logo">
+        </div>
+        
+        <div class="navbar-title">
+            <span style="font-weight: bold; 
+                        background: linear-gradient(to right, #F6FF00,#ff3737,purple); 
+                        -webkit-background-clip: text; 
+                        color: transparent;
+                        font-family: 'Playfair Display', serif; font-style: italic; ">
+                Village Trolley
+            </span>
+        </div>
+  
+        <div class="navbar-links">
+            <a href="{% url "introduction" %}"><u>Home</u></a>
+            <a href="#"><u>Daily monthly data</u></a>
+            {% comment %} <a href="#"><u> </u> </a>
+            <a href="#"><u> </u></a> {% endcomment %}
+  
+            <!-- Google Translate Element -->
+            <div id="google_translate_element"></div>
+            <script>
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+            <!-- Uncomment below to add Language link -->
+            {% comment %} <!-- <a href="{% url 'home' %}">Language</a> --> {% endcomment %}
+  
+            <a href="#"><u>Nearby Stores</u></a>
+        </div>
+  
+        <div class="user-section">
+            <div class="user-info">
+                <h2 class="W">Welcome guest!</h2>
+                <div class="login-register">
+                    <a class="L" href="{% url "customer_login_fun" %}"><u>Login</u></a>
+                    <span>|</span>
+                    <a class="R" href="{% url "customer_registartion_fun" %}"><u>Register</u></a>
+                </div>
+            </div>
+            <i class="fa fa-circle-user"></i>
+        </div>
+    </nav>
+  </section>
+
 <section class="SORegister">
     <div class="SORBox">
         <h2 class="SORH">Customer Registration</h2>
-       <form>
-           <div class="form-group">
-               <label for="fname">First Name :</label>
-               <input type="text" id="fname" name="fname" placeholder="First name">
-           </div>
-           <div class="form-group">
-               <label for="lname">Last Name :</label>
-               <input type="text" id="lname" name="lname" placeholder="Last name">
-           </div>
-         
-           {% comment %} <div class="form-group">
-               <label for="lname">Shop Name :</label>
-               <input type="text" id="lname" name="lname" placeholder="Shop name">
-           </div> {% endcomment %}
-          <div class="form-group">
-               <label for="email">Mail Id :</label>
-               <input type="email" id="email" name="email" placeholder="Email ID">
-           </div>
-           <div class="form-group">
-               <label for="pno">Phone Number :</label>
-               <input type="tel" id="pno" name="pno" placeholder="Phone Number">
-           </div>
-           
-           <div class="form-group">
-               <label for="ast">Street Address :</label>
-               <input type="text" id="ast" name="ast" placeholder="Street Address ">
-           </div>
-           <div class="form-group">
-               <label for="village">Village :</label>
-               <input type="text" id="village" name="village" placeholder="Village name">
-           </div>
-           <div class="form-group">
-               <label for="mandal">Mandal :</label>
-               <input type="text" id="mandal" name="mandal" placeholder="Mandal name">
-           </div>
-           <div class="form-group">
-               <label for="city">City :</label>
-               <input type="text" id="city" name="city" placeholder="City Name">
-           </div>
-           <div class="form-group">
-               <label for="state">State :</label>
-               <input type="text" id="state" name="state" placeholder="State Name">
-           </div>
-           <div class="form-group">
-               <label for="pc">Pin Code :</label>
-               <input type="number" id="pc" name="pc" placeholder="Pin Code">
-           </div>
-           <div class="form-group">
-               <label for="passwd">Password :</label>
-               <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password">
-           </div>
-           <div class="form-group">
-            <label for="passwd">Confirm Password :</label>
-            <input type="password" id="passwd" name="passwd" placeholder="Enter Your Password again to confirm">
-        </div>
+       <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="join-button">Join Us</button>
        </form>
-
-      <button type="button" class="join-button">Join Us</button>
-      <p class="rloginp">Already have an account. Please <a href="{% url 'customer_login' %}" class="ralogin-link">Login</a></p>
+       {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+    {% endif %}
+      
+      <p class="rloginp">Already have an account. Please <a href="{% url "customer_login_fun" %}" class="ralogin-link">Login</a></p>
     </div>
  </section>
+
+ <section>
+    <footer class="footer">
+        <div class="footer-item">    
+            <ul>
+                <li class="Footer_Heading">About Us</li>
+                <a class= "footer_links" href="#">Know More</a>
+            </ul>
+        </div>
+      <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Contact Us</li>
+                <div class="F_icons">
+            <a href="tel:+1234567890"><i class="fa-solid fa-mobile-button"></i></a>
+            <a href="https://www.gmail.com/"><i class="fa-solid fa-envelope"></i></i></a>
+            <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></i></a>
+                     
+                     
+                     
+                </div>
+            </ul>
+        </div>
+      <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Follow Us On</li>
+                <div class="F_icons">
+                  
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                     
+                                     
+                </div>
+            </ul>
+        </div>
+      <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Features</li>
+                <a class= "footer_links" href="#">Digital Inventory</a>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <ul>
+                <li class="Footer_Heading">Help</li>
+                <a class= "footer_links" href="#">User Guide</a>
+            </ul>
+        </div>
+        <div class="copy">
+            <p>&copy; 2024 - <span id="currentYear"></span> Village Trolley. All rights reserved.</p>
+          <p> Village Trolley, crafted with love <i class="fa-solid fa-heart"></i> by Chiluru Santhosh Kumar Raju. </p>
+           <p>Grateful to you for choosing @Village Trolley.</p>
+        </div>
+        </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    </section>
  {% endblock  %}
 
 
