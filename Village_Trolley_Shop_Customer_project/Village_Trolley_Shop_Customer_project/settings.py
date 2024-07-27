@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'shop_owner_forgot_pwd_app',
     'shop_owner_add_items_app',
     'nav_user_app',
+    'shop_products_data_app',
 ]
 
 MIDDLEWARE = [

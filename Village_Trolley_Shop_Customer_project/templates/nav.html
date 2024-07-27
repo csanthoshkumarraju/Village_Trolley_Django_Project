@@ -26,9 +26,10 @@
           
     </div>
     <div class="navbar-links">
-        <a href="#">  <u>Add Items</u></a>
+        <a href="{% url "shop_owner_add_items" shop_owner_id %}">  <u>Add Items</u></a>
         <a href="#"> <u>Bill Items </u> </a>
         <a href="#">  <u>Analytics </u></a>
+        <a href="{% url "shop_owner_products_data" shop_owner_id %}">  <u>All Products </u></a>
 
         {% comment %} &&&&&&&&&********************$$$$$$$$$$$$$$$$$$$$$$ {% endcomment %}
 
