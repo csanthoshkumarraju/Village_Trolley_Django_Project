@@ -62,12 +62,23 @@
 <section class="resetpwdsec">
     <div class="card">
         <h2 class="resethead">Customer Reset Password</h2>
-        <form>
-            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Please enter your registered mobile number." required class="styled-input">
-            <input type="password" id="password" name="password" placeholder="Please enter your new password here" required class="styled-input">
-            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Please enter your new password here to confirm." required class="styled-input">
+        {% if error_messages %}
+            {% for message in error_messages %}
+                <p style="color: red; font-size: 27px;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% if success_message %}
+        <div class="alert">
+            <strong style="color: #2ecc71;">Success!</strong> {{ success_message }}
+        </div>
+    {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
             <button type="submit" class="reset-button">Reset Password</button>
+            {% comment %} <button type="submit">Update Password</button> {% endcomment %}
         </form>
+        <a href="{% url "customer_login_fun" %}" class="login-link">Password Updated Login</a></p>
         
     </div>
 </section>

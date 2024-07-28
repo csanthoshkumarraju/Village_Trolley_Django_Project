@@ -5,7 +5,7 @@ from customer_registration_app.models import customer_registration_model
 # Create your views here.
 
 
-def update_password(request):
+def customer_update_password(request):
     if request.method == 'POST':
         form = PasswordUpdateForm(request.POST)
         if form.is_valid():
