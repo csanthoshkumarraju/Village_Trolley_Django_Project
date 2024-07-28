@@ -22,7 +22,7 @@ def customer_update_password(request):
 
             # Update the password
             if password == confirm_password:
-                customer.shop_owner_password = password
+                customer.customer_password = password
                 customer.save()
 
                 # Pass success message to template
