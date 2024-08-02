@@ -28,6 +28,8 @@ urlpatterns = [
     path('', include('customer_registration_app.urls')),
     path('', include('customer_login_app.urls')),
     path('', include('customer_reset_password_app.urls')),
+    path('', include('shopownernearbyshops.urls')),
+    path('', include('shop_owner_analytics_app.urls')),
 ]
 
 

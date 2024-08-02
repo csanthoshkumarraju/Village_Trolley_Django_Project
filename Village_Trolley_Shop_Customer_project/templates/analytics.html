@@ -7,10 +7,13 @@
 {% endblock css%}
 
 {% block content %}
-
-
+<div class="gradient-background">
+  <h1 class="data_header"> {{ shop_owner_first_name }} {{ shop_owner_last_name }} : {{ shop_owner_shop_name }} Shop Analytics</h1>
+</div>
 <section class="analitycs_section">
-    <div class="analitics-box">  
+  
+    <div class="analitics-box"> 
+      
       <div>
         <h5><u>Daily</u></h5>
         <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">Daily selling products</button>

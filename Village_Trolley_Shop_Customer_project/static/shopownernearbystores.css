@@ -130,3 +130,16 @@
    border-color: #000000; 
 }
 
+.gradient-background {
+   display: flex;
+   justify-content: center; /* Center horizontally */
+   align-items: center; /* Center vertically */
+   background: linear-gradient(135deg, #FEBE10,#FF00BF); /* Diagonal gradient background */
+ }
+
+ .data_header {
+   font-size: 28px; /* Adjust as needed */
+   font-weight: bold;
+   color: white; /* Text color */
+   text-align: center; /* Center text horizontally if it wraps */
+ }

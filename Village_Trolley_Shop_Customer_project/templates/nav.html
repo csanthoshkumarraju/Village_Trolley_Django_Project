@@ -26,9 +26,12 @@
           
     </div>
     <div class="navbar-links">
-        <a href="{% url "shop_owner_add_items" shop_owner_id %}">  <u>Add Items</u></a>
+
+
+        <a href="{% url "shop_owner_add_items" shop_owner_id %}">  <u>Add Items</u></a> 
         <a href="#"> <u>Bill Items </u> </a>
-        <a href="#">  <u>Analytics </u></a>
+        <a href="{% url "shop_owner_analytics" shop_owner_id %}">  <u>Analytics </u></a>
+         
         <a href="{% url "shop_owner_products_data" shop_owner_id %}">  <u>All Products </u></a>
 
         {% comment %} &&&&&&&&&********************$$$$$$$$$$$$$$$$$$$$$$ {% endcomment %}
@@ -46,7 +49,7 @@
 
         {% comment %} <a href="{% url 'home' %}">Language</a> {% endcomment %}
 
-        <a href="#"><u>Nearby Stores</u></a>
+        <a href="{% url "shop_owner_nearby_shops" shop_owner_id %}"><u>Nearby Stores</u></a>
     </div>
     <div class="user-section">
         <div class="user-info">
