@@ -1,14 +1,14 @@
-{% extends "base.html" %}
+{% extends "customerbase.html" %}
 {% load static %}
 {% block css %}
     <!-- Link to home-specific CSS -->
-    <link rel="stylesheet" href="{% static 'shopownernearbystores.css' %}">
+    <link rel="stylesheet" href="{% static 'customernearbystores.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 {% endblock css%}
 
 {% block content %}
 <div class="gradient-background">
-    <h1 class="data_header"> {{ shop_owner_first_name }} {{ shop_owner_last_name }}  Find the shops near you or search for all the shops in the village. </h1>
+    <h1 class="data_header"> {{ customer_first_name }} {{ customer_last_name }}  Find the shops near you or search for all the shops in the village. </h1>
   </div>
 <section class="nearby_section">
     <div class="nearby_box">
@@ -22,7 +22,7 @@
           <button type="submit" class="search-button1"><i class="fa fa-search"></i></button>
       </form>
       
-          <p class="neargui">To check the prices and products, click on store names.</p>
+          <p class="neargui">To check the prices,products and give ratings, click on store names.</p>
           {% comment %} <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">View Daily and Monthly Purchases</button> {% endcomment %}
          </div>
        <div style="text-align: center; padding: 15px;">
@@ -35,7 +35,7 @@
         <div class="store-item">
             <p>
                 {% comment %} <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ shop.shop_owner_shop_name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  {% endcomment %}
-                <a href="{% url 'selected_shop_owner_products' shop.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ shop.shop_owner_shop_name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+                <a href="{% url 'customer_selected_shop_owner_products_data' shop.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ shop.shop_owner_shop_name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| {{ shop.shop_owner_village_name }}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4  <i class="fa-solid fa-star"></i>
             </p>

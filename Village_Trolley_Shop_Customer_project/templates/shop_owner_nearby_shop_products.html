@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'shop_owner_nearby_shop_products.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+{% block content %}
+
+    <section class="shopproductsection">
+        <div class="shopproductsectionbox">
+            <h1 class="spshead">{{ shop_owner_first_name }} {{ shop_owner_last_name }}  : {{ shop_owner_shop_name }} All Shop Products</h1>  
+            <h2>The product search option will be available soon.....Use Browser find or CTRL+F</h2>
+
+<table class="center-table orange-border">
+    <thead>
+        <tr>
+            <th>Product Name</th>      
+            <th> Price</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if shop_owner_products %}
+            {% for product in shop_owner_products %}
+            <tr>
+                <td>{{ product.product_name }}</td>
+                <td> ₹ {{ product.product_selling_price }}</td>
+                <td>{{ product.product_qunatity }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" style="color:red; text-align:center;">
+                    <h1><b>No products found for this shop owner</b></h1>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="5" style="color:red; text-align:center;">
+                <h1><b>No products found for this shop owner</b></h1>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+          
+          
+{% if search_query %}
+<h2>Search Results for "{{ search_query }}"</h2>
+<table class="center-table orange-border">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if shop_owner_products %}
+            {% for product in shop_owner_products %}
+            <tr>
+                <td>{{ product.product_name }}</td>
+                <td>₹ {{ product.product_selling_price }}</td>
+                <td>{{ product.product_qunatity }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" style="color:red; text-align:center;">
+                    <h1><b>No products found matching your search</b></h1>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3" style="color:red; text-align:center;">
+                <h1><b>No products found matching your search</b></h1>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endif %}
+          
+
+            
+        </div>
+    </section>
+
+
+
+ {% endblock %}

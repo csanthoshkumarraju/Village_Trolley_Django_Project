@@ -30,6 +30,8 @@ urlpatterns = [
     path('', include('customer_reset_password_app.urls')),
     path('', include('shopownernearbyshops.urls')),
     path('', include('shop_owner_analytics_app.urls')),
+    path('', include('customer_nearbystores_app.urls')),
+    path('', include('customer_nearbystores_rating_app.urls')),
 ]
 
 

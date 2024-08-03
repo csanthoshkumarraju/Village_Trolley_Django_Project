@@ -17,7 +17,8 @@ def customer_login_fun(request):
                 customer = customer_registration_model.objects.get(customer_phone_number=phone_number)
                 if customer.customer_password == password:
                     request.session['customer_id'] = customer.id
-                    return HttpResponse('Login Successful')
+                    # return HttpResponse('Login Successful')
+                    return redirect('customer_search_nearby_shops')
                 else:
                     form.add_error(None, "Incorrect password")
             except customer_registration_model.DoesNotExist:

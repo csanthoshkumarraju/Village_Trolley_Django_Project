@@ -1,0 +1,65 @@
+{% load static %}
+{% load i18n %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'customernav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+
+<section>
+<nav class="navbar navbar-custom">
+    <div class="VT_logo">
+        <img src="{% static 'fotor-2024062021484.png' %}" style="width: 100px; height: 100px;" alt="VT Logo">
+    </div>
+    
+    <div class="navbar-title">
+      
+      <span style="font-weight: bold; 
+            background: linear-gradient(to right, #F6FF00,#ff3737,purple); 
+            -webkit-background-clip: text; 
+            color: transparent;
+            font-family: 'Playfair Display', serif; font-style: italic; ">
+    Village Trolley
+</span>
+           
+          
+    </div>
+    <div class="navbar-links">
+
+
+        <a href="#"><u>Home</u></a>
+        <a href="#"><u>Daily monthly data</u></a>
+
+        {% comment %} &&&&&&&&&********************$$$$$$$$$$$$$$$$$$$$$$ {% endcomment %}
+
+        <div id="google_translate_element"></div>
+        <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+        {% comment %} &&&&&&&&&********************$$$$$$$$$$$$$$$$$$$$$$ {% endcomment %}
+
+        {% comment %} <a href="{% url 'home' %}">Language</a> {% endcomment %}
+
+        <a href="{% url "customer_search_nearby_shops" %}"><u>Nearby Stores</u></a>
+    </div>
+    <div class="user-section">
+        <div class="user-info">
+            {% comment %} {% if shop_owner_name_instance %}
+            <h2 class="W">Welcome guest! {{ shop_owner_name_instance.shop_owner_first_name|add:" " }}{{ shop_owner_name_instance.shop_owner_last_name }}</h2>
+            {% else %}
+            <p>Name not found.</p>
+            {% endif %} {% endcomment %}
+            <div class="login-register">
+                <a class= "L" href="{% url 'customer_login_fun' %}"><u>Logout</u></a>
+            </div>
+        </div>
+        <i class="fa fa-circle-user"></i>
+    </div>
+</nav>
+
+</section>
