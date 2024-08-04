@@ -26,7 +26,7 @@
           {% comment %} <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">View Daily and Monthly Purchases</button> {% endcomment %}
          </div>
        <div style="text-align: center; padding: 15px;">
-          <h4 class="nearbyhe"><u>Click on store name to get shop details  </u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Village Name</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Shop Rating 1 - 5       Address</u></h4>
+          <h4 class="nearbyhe"><u>Click on store name to get shop details  </u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Village Name</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Shop Rating 1 - 5 </u></h4>
  <!--          <h4 class="nearbyhe"><u>Store Name | Village | Rating</u></h4> -->
        </div>
        <div class="store-details"> 
@@ -37,7 +37,7 @@
                 {% comment %} <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ shop.shop_owner_shop_name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  {% endcomment %}
                 <a href="{% url 'customer_selected_shop_owner_products_data' shop.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ shop.shop_owner_shop_name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| {{ shop.shop_owner_village_name }}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4  <i class="fa-solid fa-star"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| {{ shop.avg_rating }}  <i class="fa-solid fa-star"></i>
             </p>
         </div>
     {% endfor %}
