@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'customer_nearbystores_app',
     'customer_nearbystores_rating_app',
     'shop_owner_billing_app',
+    'shop_owner_shop_low_stock_products',
 ]
 
 MIDDLEWARE = [

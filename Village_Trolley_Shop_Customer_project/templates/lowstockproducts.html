@@ -11,20 +11,22 @@
 
 <section class="lowstockproducts">
     <div class="lowstockbox">
-      <h5 class="lowstockhead"><i class="fa-solid fa-battery-quarter"></i> Low Stock Products</h5>
+      <h5 class="lowstockhead"> {{ shop_owner_first_name }} {{ shop_owner_last_name }} 's Shop :- {{ shop_owner_shop_name }}  <i class="fa-solid fa-battery-quarter"></i>  Low Stock Products</h5>
       <div class="lowstocklist">
-          <p>Oil - 5</p>
-          <p>Drinks - 10</p>
-          <p>Eggs - 50 </p>
-          <p>Soaps - 10</p>
-          <p>Paste - 10</p>
-          <p>Paste - 10</p>
-          <p>Paste - 10</p>
-          <p>Paste - 10</p>
-          <p>Paste - 10</p>
-          <p>Paste - 10</p>
-          <p>Paste - 10</p>
-          <button class="lowstkbut">Send Remainder</button>
+        
+            {% if low_stock_items %}
+        <ul>
+            {% for item in low_stock_items %}
+                <li class="product-row">
+                    {{ item.product_name }} - {{ item.product_qunatity }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No low stock items.</p>
+    {% endif %}
+        
+          <button class="lowstkbut">Send Reminder Feature Coming Soon....</button>
       </div>
     </div>
  </section>

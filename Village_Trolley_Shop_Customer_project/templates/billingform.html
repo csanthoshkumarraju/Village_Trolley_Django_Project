@@ -302,8 +302,10 @@
         <h6 class="billingbox_guide"><marquee class="bgmar" scrollamount="2">Enter all billing items individually using the search option.If a searched product is not found or after searching for a new product, refresh the page to see all products.After entering all items, click 'Bill'.</marquee></h6>
         {% comment %} <button class="bill-button2">Low Stock Products</button> {% endcomment %}
         <h2></h2>
-        <button class="bill-button2">Low Stock Products</button>
 
+        {% comment %} low_stock_products {% endcomment %}
+        {% comment %} <button class="bill-button2">Low Stock Products</button> {% endcomment %}
+        <a href="{% url 'low_stock_products' shop_owner_id %}" class="bill-button2">Low Stock Products</a>
         
         <form>   
         <input type="text" id="productNameSearch" class="cust_mailId" placeholder="Enter Customer registerd Phone number">
