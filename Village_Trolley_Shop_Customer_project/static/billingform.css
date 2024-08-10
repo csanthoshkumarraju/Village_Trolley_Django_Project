@@ -17,7 +17,7 @@
 .billing_box {
     background-color: #ecf3f9;
     width: 80%; /* Adjust width as needed */
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
     background: linear-gradient(to bottom right, #F2EBDD 0%, #D7FFD9 100%);
     border-radius: 8px;
@@ -75,14 +75,15 @@
 }
 
 .billtable th, .billtable td {
-    border: 1px solid #dddddd;
+    /* border: 1px solid #dddddd; */
+    border: 1px solid #32de84; 
     text-align: left;
     padding: 10px;
    
     
 }
 
-.billtable th {
+.billtable th{
     background-color: #f2f2f2;
 }
 
@@ -202,4 +203,17 @@
     border-radius: 8px;
     padding:10px;
     border: 1.5px solid black;
+}
+
+.adih {
+    color:#FF4500;
+}
+
+.alert-success {
+    color: #009900; /* Dark green text color */
+    background-color: #d4edda; /* Light green background color */
+    border: 1px solid #28a745; /* Green border color */
+    padding: 10px; /* Padding to add space inside the alert box */
+    border-radius: 4px; /* Optional: Rounded corners */
+    margin:10px;
 }
