@@ -16,8 +16,8 @@
 
 .billing_box {
     background-color: #ecf3f9;
-    width: 80%; /* Adjust width as needed */
-    max-width: 1350px;
+    width: 95%; /* Adjust width as needed  changed from 80 - 90*/ 
+    max-width: 100vw; /* changhed from 1400px*/
     margin: 0 auto;
     background: linear-gradient(to bottom right, #F2EBDD 0%, #D7FFD9 100%);
     border-radius: 8px;

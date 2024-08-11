@@ -7,6 +7,13 @@
 {% endblock css%}
 
 {% block content %}
+<script>
+  function redirectToProducts(shopOwnerId) {
+      var url = "{% url 'daily_monthly_sold_products' 0 %}".replace('0', shopOwnerId);
+      window.location.href = url;
+  }
+</script>
+
 <div class="gradient-background">
   <h1 class="data_header"> {{ shop_owner_first_name }} {{ shop_owner_last_name }} : {{ shop_owner_shop_name }} Shop Analytics</h1>
 </div>
@@ -16,7 +23,7 @@
       
       <div>
         <h5><u>Daily</u></h5>
-        <button class="DSPbu" onclick="window.location.href='/daily_monthly_data'">Daily selling products</button>
+        <button class="DSPbu" onclick="redirectToProducts({{ shop_owner_id }})">Daily selling products</button>
         <p id="current-date"></p>
         <p id="current-time"></p>
         <p>Sold Today : ₹ 1000</p>
@@ -25,7 +32,7 @@
       </div>
       <div>
         <h5><u>Monthly</u></h5>
-        <button class="MSPbu" onclick="window.location.href='/daily_monthly_data'">Monthly selling products</button>
+        <button class="MSPbu" onclick="redirectToProducts({{ shop_owner_id }})">Monthly selling products</button>
         <p id="current-month"></p>
         <p>Sold This month : ₹ 1000</p>
         <p>Products sold: 100</p>

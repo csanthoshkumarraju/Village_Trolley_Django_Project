@@ -52,15 +52,16 @@ def shop_owner_billing(request,shop_owner_id):
             id__in=product_ids, 
             shop_user_name=shop_user_name
         ).distinct())
-
+    # product_details = shop_owner_add_items.objects.get(id=product_id)
     if request.method == 'POST':
         SearchHistory.objects.filter(shop_owner_id=shop_owner_id).delete()
         # Process form data to save transactions
-        for product_id, quantity, price, total_amount in zip(
+        for product_id, quantity, price, total_amount,buying_price in zip(
                 request.POST.getlist('product_ids'),
                 request.POST.getlist('quantities'),
                 request.POST.getlist('prices'),
-                request.POST.getlist('total_amounts')
+                request.POST.getlist('total_amounts'),
+                request.POST.getlist('buying_prices'),
         ):
             ProductTransaction.objects.create(
                 shop_owner=shop_user_name,
@@ -68,7 +69,8 @@ def shop_owner_billing(request,shop_owner_id):
                 product_name=shop_owner_add_items.objects.get(id=product_id).product_name,
                 quantity=quantity,
                 price=price,
-                total_amount=total_amount
+                total_amount=total_amount,
+                product_buying_price=buying_price,
             )
 
         messages.success(request, 'Products have been billed successfully. Thank you, @Village Trolley. Please add the products for the next bill.')

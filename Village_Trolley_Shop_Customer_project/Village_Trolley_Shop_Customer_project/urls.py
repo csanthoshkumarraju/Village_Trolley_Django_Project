@@ -34,6 +34,7 @@ urlpatterns = [
     path('', include('customer_nearbystores_rating_app.urls')),
     path('', include('shop_owner_billing_app.urls')),
     path('', include('shop_owner_shop_low_stock_products.urls')),
+    path('', include('shop_owner_daily_monthly_sold_products.urls')),
 ]
 
 

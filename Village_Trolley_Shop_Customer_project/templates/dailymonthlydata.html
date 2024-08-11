@@ -9,17 +9,71 @@
 {% block content %}
 
 <section class="DMSPsec">
-   <h1 class="DMASCH"> SHOP NAME </h1>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to calculate and display total price
+      function updateTotalPrices(containerId) {
+          const container = document.getElementById(containerId);
+          if (container) {
+              const items = container.querySelectorAll('p');
+              items.forEach(item => {
+                  const quantity = parseFloat(item.getAttribute('data-quantity'));
+                  const price = parseFloat(item.getAttribute('data-price'));
+                  const total = quantity * price;
+                  // Directly update the text content of the <p> element
+                  const parts = item.textContent.split(' - ₹');
+                  item.textContent = `${parts[0]} - ₹ ${total.toFixed(2)}`;
+              });
+          }
+      }
+  
+      // Update daily and monthly transaction prices
+      updateTotalPrices('daily-transactions');
+      updateTotalPrices('monthly-transactions');
+  });
+  
+    </script>
+   <h1 class="DMASCH"> {{ shop_owner_first_name }} {{ shop_owner_last_name }} 's  - {{ shop_owner_shop_name }}  </h1>
    <div class="DMSPbox">
       <div class="daily">
          <h2 class="DSPBH"><u>Daily Selling Products</u></h2>
         <div class="input-container">
- <input type="text" placeholder="Enter the date Ex:- 15-07-2024 ">
- <button type="button" class="search-button">
-   <i class="fas fa-search fa-lg"></i>
- </button>
-</div>
+            {% comment %} <input type="text" placeholder="Enter the date Ex:- 15-07-2024 ">
+                <button type="button" class="search-button">
+                  <i class="fas fa-search fa-lg"></i>
+                </button> {% endcomment %}
+                {% comment %} <form method="GET">
+                  <input type="text" name="date" placeholder="Enter the date Ex:- 15-07-2024" value="{{ selected_date }}">
+                  <button type="submit" class="search-button">
+                      <i class="fas fa-search fa-lg"></i>
+                  </button>
+              </form> {% endcomment %}
+              <form method="GET" class="daily-search-form">
+                <input type="text" name="daily_date" placeholder="Enter the date (Ex: 15-07-2024)" value="{{ daily_selected_date }}">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search fa-lg"></i>
+                </button>
+            </form>
+
+        </div>
+
+
+
          <h5 class="DSPH"> <u><i>   Product Name          Quantity         Price</u></i></h5>
+         {% comment %} {% for transaction in transactions %} {% endcomment %}
+         {% comment %} <p class="DSPP">
+             {{ transaction.product_name }} 
+             {{ transaction.quantity }} 
+             ₹ {{ transaction.price }}
+         </p> {% endcomment %}
+         {% comment %} <p class="DSPP">  {{ transaction.product_name }} - {{ transaction.quantity }} - ₹ {{ transaction.price }} </p>
+
+     {% empty %}
+         <p>No products sold on this date.</p>
+     {% endfor %} {% endcomment %}
+
+
+        {% comment %} <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
         <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
         <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
         <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
@@ -27,14 +81,32 @@
         <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
         <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
         <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
-        <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
-        <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p>
-        
+        <p class="DSPP">  Sunflower Oil          10         ₹ 140 </p> {% endcomment %}
+        {% comment %} {% if daily_transactions %}
+    {% for transaction in daily_transactions %}
+        <p class="DSPP"> {{ transaction.product_name }} - {{ transaction.quantity }} - {{ transaction.quantity }} X  ₹ {{ transaction.price }} = ₹ <span class="total-price"></span> </p>
+    {% endfor %}
+{% else %}
+    <p class="DSPP">No products found for the selected date.</p>
+{% endif %} {% endcomment %}
+
+{% if daily_transactions %}
+    <div id="daily-transactions">
+        {% for transaction in daily_transactions %}
+            <p class="DSPP" data-quantity="{{ transaction.quantity }}" data-price="{{ transaction.price }}">
+                {{ transaction.product_name }} - {{ transaction.quantity }} -  ₹ </span>
+            </p>
+        {% endfor %}
+        {% else %}
+    <p class="DSPP">No products found for the selected date.</p>
+    </div>
+{% endif %}
+
  <div class="container-unique">
  <div class="white-box-unique">
    <div class="text-unique">
      <p>TOTAL AMOUNT INVESTED TODAY:<b> ₹  100000</b></p>
-     <p>TOTAL AMOUNT SOLD TODAY:<b> ₹ 100000</b></p>
+     <p>TOTAL AMOUNT SOLD TODAY:<b> ₹ {{ daily_total_amount }} </b></p>
      <p>TOTAL AMOUNT PROFIT/LOSS TODAY: <b> ₹ 100000 </b></p>
    </div>
  </div>
@@ -45,24 +117,53 @@
       <div class="monthly">
          <h2 class="MSPBH"><u>Monthly Selling Products</u></h2>
         <div class="input-container">
- <input type="text" placeholder="Filter by month and year as 07-2024">
+ {% comment %} <input type="text" placeholder="Filter by month and year as 07-2024">
  <button type="button" class="search-button">
    <i class="fas fa-search fa-lg"></i>
- </button>
+ </button> {% endcomment %}
+ <form method="GET" class="monthly-search-form">
+  <input type="text" name="monthly_date" placeholder="Filter by month and year (Ex: 07-2024)" value="{{ monthly_selected_date }}">
+  <button type="submit" class="search-button">
+      <i class="fas fa-search fa-lg"></i>
+  </button>
+</form>
+
 </div>
          <h5 class="MSPH"> <u><i>   Product Name           Quantity          Price</u></i></h5>
+         {% comment %} <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
          <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
          <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
          <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
          <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
          <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
-         <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
-         <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p>
-          <div class="container-unique">
+         <p class="MSPP">   Sunflower Oil          10          ₹ 140 </p> {% endcomment %}
+         {% comment %} {% if monthly_transactions %}
+         {% for transaction in monthly_transactions %}
+             <p class="MSPP"> {{ transaction.product_name }} - {{ transaction.quantity }} - {{ transaction.quantity }} X ₹ {{ transaction.price }} = ₹ <span class="total-price"></span></p>
+         {% endfor %}
+     {% else %}
+         <p class="MSPP">No products found for the selected month.</p>
+     {% endif %} {% endcomment %}
+     {% if monthly_transactions %}
+    <div id="monthly-transactions">
+        {% for transaction in monthly_transactions %}
+            <p class="MSPP" data-quantity="{{ transaction.quantity }}" data-price="{{ transaction.price }}">
+                {{ transaction.product_name }} - {{ transaction.quantity }} -  ₹ </span>
+            </p>
+        {% endfor %}
+        {% else %}
+         <p class="MSPP">No products found for the selected month.</p>
+    </div>
+{% endif %}
+
+         
+         
+         
+         <div class="container-unique">
  <div class="white-box-unique">
    <div class="text-unique">
      <p>TOTAL AMOUNT INVESTED THIS MONTH:<b> ₹  100000</b></p>
-     <p>TOTAL AMOUNT SOLD THIS MONTH:<b> ₹ 100000</b></p>
+     <p>TOTAL AMOUNT SOLD THIS MONTH:<b> ₹ {{ monthly_total_amount }} </b></p>
      <p>TOTAL AMOUNT PROFIT/LOSS THIS MONTH: <b> ₹ 100000 </b></p>
    </div>
  </div>

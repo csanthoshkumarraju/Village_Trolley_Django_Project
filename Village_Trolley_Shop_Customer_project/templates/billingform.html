@@ -195,13 +195,16 @@
         
             // Calculate total price
             const totalPrice = quantity * sellingPrice;
-            var displayQuantity = isNaN(quantity) ? 1 : Math.floor(quantity);
+            const displayQuantity = isNaN(quantity) ? 1 : Math.floor(quantity);
+        
             // Update the display for quantity, selling price, and total amount
             document.getElementById(`quantity_display_${id}`).innerText = displayQuantity;
-            document.getElementById(`selling_price_display_${id}`).innerText = `₹ ${sellingPrice.toFixed(2)}`;
             document.getElementById(`total_amount_${id}`).innerText = `₹ ${totalPrice.toFixed(2)}`;
+            
+            // Also update the total bill
+            updateTotalBill();
         }
-        
+
         // Function to update the total bill
         function updateTotalBill() {
             const totalAmountElements = document.querySelectorAll('[id^="total_amount_"]');
@@ -215,14 +218,14 @@
             document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
         }
 
-        function updateTotalBill() {
+        {% comment %} function updateTotalBill() {
             const totalAmountElements = document.querySelectorAll('[id^="total_amount_"]');
             let totalBill = 0;
     
             totalAmountElements.forEach(element => {
                 const amount = parseFloat(element.innerText.replace('₹', '').trim()) || 0;
                 totalBill += amount;
-            });
+            }); {% endcomment %}
     
             document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
     
@@ -231,23 +234,27 @@
             const quantities = [];
             const prices = [];
             const totalAmounts = [];
+            const buyingPrices = [];
     
             document.querySelectorAll('input[type="number"]').forEach(input => {
                 const id = input.id.replace('quantity_', '');
                 const quantity = parseFloat(input.value) || 1;
                 const sellingPrice = parseFloat(document.getElementById(`selling_price_display_${id}`).innerText.replace('₹', '').trim()) || 0;
                 const totalAmount = quantity * sellingPrice;
-    
+                const buyingPrice = parseFloat(document.getElementById(`buying_price_display_${id}`).innerText.replace('₹', '').trim()) || 0; // Get buying price (added here)
+
                 productIds.push(id);
                 quantities.push(quantity);
                 prices.push(sellingPrice);
                 totalAmounts.push(totalAmount);
+                buyingPrices.push(buyingPrice); 
             });
     
             document.querySelectorAll('input[name="product_ids"]').forEach((input, index) => input.value = productIds[index]);
             document.querySelectorAll('input[name="quantities"]').forEach((input, index) => input.value = quantities[index]);
             document.querySelectorAll('input[name="prices"]').forEach((input, index) => input.value = prices[index]);
             document.querySelectorAll('input[name="total_amounts"]').forEach((input, index) => input.value = totalAmounts[index]);
+            document.querySelectorAll('input[name="buying_prices"]').forEach((input, index) => input.value = buyingPrices[index]);
         }
     
         function updateHiddenFields() {
@@ -255,17 +262,20 @@
             const quantities = [];
             const prices = [];
             const totalAmounts = [];
-    
+            const buyingPrices = [];
+
             document.querySelectorAll('tr.table-row').forEach(row => {
                 const id = row.querySelector('input[id^="quantity_"]').id.replace('quantity_', '');
                 const quantity = parseFloat(row.querySelector(`#quantity_${id}`).value) || 1;
                 const sellingPrice = parseFloat(row.querySelector(`#selling_price_display_${id}`).innerText.replace('₹', '').trim()) || 0;
                 const totalAmount = quantity * sellingPrice;
-    
+                const buyingPrice = parseFloat(row.querySelector(`#buying_price_display_${id}`).innerText.replace('₹', '').trim()) || 0;
+                
                 productIds.push(id);
                 quantities.push(quantity);
                 prices.push(sellingPrice);
                 totalAmounts.push(totalAmount);
+                buyingPrices.push(buyingPrice);
     
                 // Update the total amount display
                 row.querySelector(`#total_amount_${id}`).innerText = `₹ ${totalAmount.toFixed(2)}`;
@@ -276,7 +286,7 @@
             document.querySelectorAll('input[name="quantities"]').forEach((input, index) => input.value = quantities[index]);
             document.querySelectorAll('input[name="prices"]').forEach((input, index) => input.value = prices[index]);
             document.querySelectorAll('input[name="total_amounts"]').forEach((input, index) => input.value = totalAmounts[index]);
-    
+            document.querySelectorAll('input[name="buying_prices"]').forEach((input, index) => input.value = buyingPrices[index]);
             // Update total bill amount
             const totalBill = totalAmounts.reduce((sum, amount) => sum + amount, 0);
             document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
@@ -457,7 +467,8 @@
                     <tr>
                         <th class="product-name">Product Name</th>
                         <th class="quantity">Modify Quantity (In KG)</th>
-                        <th class="price">Price</th>
+                        <th class="price">Selling Price</th>
+                        <th class="price">Buying Price</th>
                         <th class="place">Place</th>
                     </tr>
                 </thead>
@@ -474,16 +485,24 @@
                                            step="any" 
                                            value="1">
                                 </td>
+    
+                                {% comment %} <td id="total_{{ product.id }}">
+                                    <span id="quantity_display_{{ product.id }}">1</span> X 
+                                    <span id="selling_price_display_{{ product.id }}">₹ {{ product.product_selling_price }}</span> = 
+                                    <span id="total_amount_{{ product.id }}">₹ {{ product.product_selling_price }}</span>
+                                </td> {% endcomment %}
                                 <td id="total_{{ product.id }}">
                                     <span id="quantity_display_{{ product.id }}">1</span> X 
                                     <span id="selling_price_display_{{ product.id }}">₹ {{ product.product_selling_price }}</span> = 
                                     <span id="total_amount_{{ product.id }}">₹ {{ product.product_selling_price }}</span>
                                 </td>
+                                <td id="buying_price_display_{{ product.id }}">₹  {{ product.product_buying_price }}</td>
                                 <td>{{ product.product_storage_place }}</td>
                                 <!-- Hidden fields for form submission -->
                                 <input type="hidden" name="product_ids" value="{{ product.id }}">
                                 <input type="hidden" name="prices" value="{{ product.product_selling_price }}">
                                 <input type="hidden" name="total_amounts" value="{{ product.product_selling_price }}">
+                                <input type="hidden" name="buying_prices" value="{{ product.product_buying_price }}">
                             </tr>
                         {% endfor %}
                     {% else %}
