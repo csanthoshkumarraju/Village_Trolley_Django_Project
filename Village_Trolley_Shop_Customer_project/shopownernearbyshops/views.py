@@ -95,15 +95,15 @@ def shop_owner_nearby_shops(request, shop_owner_id):
     
     return render(request, 'shopownernearbystores.html', context)
 
-def selected_shop_owner_products_data(request, shop_owner_id):
-    shop_user_name = get_object_or_404(shop_owner_registration_model, pk=shop_owner_id)
+def selected_shop_owner_products_data(request, n_shop_owner_id):
+    shop_user_name = get_object_or_404(shop_owner_registration_model, pk=n_shop_owner_id)
     shop_owner_products = shop_owner_add_items.objects.filter(shop_user_name=shop_user_name)
 
     context = {
         'shop_owner_first_name': shop_user_name.shop_owner_first_name,
         'shop_owner_last_name': shop_user_name.shop_owner_last_name,
         'shop_owner_shop_name': shop_user_name.shop_owner_shop_name,
-        'shop_owner_id': shop_owner_id,
+        'shop_owner_id': n_shop_owner_id,
         'shop_owner_products': shop_owner_products,
         'shop_owner_street_address': shop_user_name.shop_owner_street_address,
         'shop_owner_village_name': shop_user_name.shop_owner_village_name,

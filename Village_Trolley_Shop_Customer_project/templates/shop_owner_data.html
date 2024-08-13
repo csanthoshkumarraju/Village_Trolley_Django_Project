@@ -11,6 +11,54 @@
 <section class="shop_owner_all_products_sec">
     <div class= "shop_owner_name_shop_name">
         <h1 class="data_header"> {{ shop_owner_first_name }} {{ shop_owner_last_name }}  : {{ shop_owner_shop_name }} All Shop Products </h1>
+        
+        <form method="get" class="search-form">
+            <input type="text" name="q" class="search-input" placeholder="Search products...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+        
+        <h1 class="glass-text">If you have searched for specific products, only those results will be shown. Otherwise, all products will be displayed with an empty search button.</h1>
+
+
+        <table class="center-table blue-border">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Buying Price</th>
+                    <th>Selling Price</th>
+                    <th>Quantity (In KG)</th>
+                    <th>Product Storage Place</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if searched_shop_owner_products %}
+                    {% for s_product in searched_shop_owner_products %}
+                    <tr>
+                        <td>{{ s_product.product_name }}</td>
+                        <td> ₹ {{ s_product.product_buying_price }}</td>
+                        <td> ₹ {{ s_product.product_selling_price }}</td>
+                        <td>{{ s_product.product_qunatity }}</td>
+                        <td>{{ s_product.product_storage_place }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" style="color:red; text-align:center;">
+                            <h1><b>If it hasn’t been searched, start searching for the product. If it has been searched and no product is found, add the product to the store.</b></h1>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5" style="color:red; text-align:center;">
+                        <h1><b>If it hasn’t been searched, start searching for the product. If it has been searched and no product is found, add the product to the store.</b></h1>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+
+
         {% comment %} <table class="center-table">
             <thead>
               <tr class="blue-border">
@@ -35,6 +83,9 @@
               </tr>
             </tbody>
           </table> {% endcomment %}
+
+          <h1 class="glass-text-green">All products available in the shop</h1>
+
           <table class="center-table blue-border">
             <thead>
                 <tr>

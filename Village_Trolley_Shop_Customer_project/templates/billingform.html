@@ -185,26 +185,25 @@
         }
         
         // Function to update total price based on input quantity and product price
+        // Function to update total price based on input quantity and product price
         function updateTotalPrice(input) {
             const id = input.id.replace('quantity_', '');
             const quantity = parseFloat(input.value) || 0;
-        
-            // Retrieve product selling price from the span element
             const sellingPriceElement = document.getElementById(`selling_price_display_${id}`);
             const sellingPrice = parseFloat(sellingPriceElement.innerText.replace('₹', '').trim()) || 0;
-        
+            const buyingPriceElement = document.getElementById(`buying_price_display_${id}`);
+            const buyingPrice = parseFloat(buyingPriceElement.innerText.replace('₹', '').trim()) || 0;
+
             // Calculate total price
             const totalPrice = quantity * sellingPrice;
-            const displayQuantity = isNaN(quantity) ? 1 : Math.floor(quantity);
-        
+
             // Update the display for quantity, selling price, and total amount
-            document.getElementById(`quantity_display_${id}`).innerText = displayQuantity;
+            document.getElementById(`quantity_display_${id}`).innerText = quantity; // Update quantity display
             document.getElementById(`total_amount_${id}`).innerText = `₹ ${totalPrice.toFixed(2)}`;
-            
+
             // Also update the total bill
             updateTotalBill();
         }
-
         // Function to update the total bill
         function updateTotalBill() {
             const totalAmountElements = document.querySelectorAll('[id^="total_amount_"]');

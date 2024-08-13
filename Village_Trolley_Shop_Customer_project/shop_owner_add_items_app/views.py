@@ -134,6 +134,67 @@ from .forms import shop_owner_add_items_form
 
 #     return render(request, 'additems.html', context)
 
+# def add_items_for_shop_owner(request, shop_owner_id):
+#     shop_user_name = get_object_or_404(shop_owner_registration_model, pk=shop_owner_id)
+
+#     if request.method == 'POST':
+#         product_names = request.POST.getlist('product_name[]')
+#         buying_prices = request.POST.getlist('product_buying_price[]')
+#         selling_prices = request.POST.getlist('product_selling_price[]')
+#         quantities = request.POST.getlist('product_quantity[]')
+#         storage_places = request.POST.getlist('product_storage_place[]')
+
+#         if len(product_names) == len(buying_prices) == len(selling_prices) == len(quantities) == len(storage_places):
+#             form_errors = {}
+
+#             for i in range(len(product_names)):
+#                 form_data = {
+#                     'product_name': product_names[i],
+#                     'product_buying_price': buying_prices[i],
+#                     'product_selling_price': selling_prices[i],
+#                     'product_qunatity': quantities[i],
+#                     'product_storage_place': storage_places[i]
+#                 }
+#                 form = shop_owner_add_items_form(data=form_data)
+                
+#                 if form.is_valid():
+#                     shop_owner_add_items.objects.create(
+#                         shop_user_name=shop_user_name,
+#                         **form.cleaned_data
+#                     )
+#                 else:
+#                     for field, error in form.errors.items():
+#                         if field not in form_errors:
+#                             form_errors[field] = []
+#                         form_errors[field].extend(error)
+
+#             if form_errors:
+#                 context = {
+#                     'form_errors': form_errors,
+#                     'shop_owner_first_name': shop_user_name.shop_owner_first_name,
+#                     'shop_owner_last_name': shop_user_name.shop_owner_last_name,
+#                     'shop_owner_shop_name': shop_user_name.shop_owner_shop_name,
+#                     'shop_owner_id': shop_owner_id,
+#                 }
+#                 return render(request, 'additems.html', context)
+#             else:
+#                 # return HttpResponse('Items added successfully')
+#                 return redirect('shop_owner_products_data',shop_owner_id)
+#         else:
+#             return HttpResponse('Error: Mismatched input lengths', status=400)
+#     else:
+#         form = shop_owner_add_items_form()
+
+#     context = {
+#         'form': form,
+#         'shop_owner_first_name': shop_user_name.shop_owner_first_name,
+#         'shop_owner_last_name': shop_user_name.shop_owner_last_name,
+#         'shop_owner_shop_name': shop_user_name.shop_owner_shop_name,
+#         'shop_owner_id': shop_owner_id,
+#     }
+
+#     return render(request, 'additems.html', context)
+
 def add_items_for_shop_owner(request, shop_owner_id):
     shop_user_name = get_object_or_404(shop_owner_registration_model, pk=shop_owner_id)
 
@@ -158,10 +219,33 @@ def add_items_for_shop_owner(request, shop_owner_id):
                 form = shop_owner_add_items_form(data=form_data)
                 
                 if form.is_valid():
-                    shop_owner_add_items.objects.create(
+                    product_name = form.cleaned_data['product_name']
+                    buying_price = form.cleaned_data['product_buying_price']
+                    selling_price = form.cleaned_data['product_selling_price']
+                    quantity = form.cleaned_data['product_qunatity']
+                    storage_place = form.cleaned_data['product_storage_place']
+
+                    # Check if the product already exists for this shop owner
+                    existing_product = shop_owner_add_items.objects.filter(
                         shop_user_name=shop_user_name,
-                        **form.cleaned_data
-                    )
+                        product_name=product_name
+                    ).first()
+
+                    if existing_product:
+                        # Update the existing product's quantity
+                        existing_product.product_qunatity += quantity
+                        existing_product.product_storage_place = storage_place  # Update storage place if needed
+                        existing_product.save()
+                    else:
+                        # Create a new product entry
+                        shop_owner_add_items.objects.create(
+                            shop_user_name=shop_user_name,
+                            product_name=product_name,
+                            product_buying_price=buying_price,
+                            product_selling_price=selling_price,
+                            product_qunatity=quantity,
+                            product_storage_place=storage_place
+                        )
                 else:
                     for field, error in form.errors.items():
                         if field not in form_errors:
@@ -178,8 +262,7 @@ def add_items_for_shop_owner(request, shop_owner_id):
                 }
                 return render(request, 'additems.html', context)
             else:
-                # return HttpResponse('Items added successfully')
-                return redirect('shop_owner_products_data',shop_owner_id)
+                return redirect('shop_owner_products_data', shop_owner_id)
         else:
             return HttpResponse('Error: Mismatched input lengths', status=400)
     else:
