@@ -26,45 +26,45 @@
         <button class="DSPbu" onclick="redirectToProducts({{ shop_owner_id }})">Daily selling products</button>
         <p id="current-date"></p>
         <p id="current-time"></p>
-        <p>Sold Today : ₹ 1000</p>
-        <p>Products sold: 100</p>
-        <p>Profit/Loss : ₹ 30000</p>
+        <p>Sold Today : ₹ {{ total_sold_today|floatformat:2 }} </p>
+        <p>Products sold: {{ total_quantity_today|floatformat:2 }}</p>
+        <p>Profit/Loss : ₹ {{ profit_or_loss_today|floatformat:2 }}</p>
       </div>
       <div>
         <h5><u>Monthly</u></h5>
         <button class="MSPbu" onclick="redirectToProducts({{ shop_owner_id }})">Monthly selling products</button>
         <p id="current-month"></p>
-        <p>Sold This month : ₹ 1000</p>
-        <p>Products sold: 100</p>
-        <p>Profit/Loss : ₹ 300000000</p>
+        <p>Sold This month : {{ total_sold_month|floatformat:2 }} </p>
+        <p>Products sold: {{ total_quantity_month|floatformat:2 }}</p>
+        <p>Profit/Loss : ₹ {{ profit_or_loss_month|floatformat:2 }}</p>
       </div>
       <div>
         <h5><u>Yearly</u></h5>
         
         <p id="current-year"></p>
-        <p>Sold This Year : ₹ 1000</p>
-        <p>Products sold: 100</p>
-        <p>Profit/Loss : ₹ 3000000000</p>
+        <p>Sold This Year : ₹ {{ total_sold_year|floatformat:2 }}</p>
+        <p>Products sold: {{ total_quantity_year|floatformat:2 }}</p>
+        <p>Profit/Loss : ₹ {{ profit_or_loss_year|floatformat:2 }}</p>
       </div>
       <div>
           <h5><u>Total Profit</u></h5>
-          <p>Investment: ₹ 50000</p>
-          <p>Return : ₹ 80000</p>
-          <p>If cond Profit : ₹ 30000</p>
+          <p>Investment: ₹ {{ total_investment|floatformat:2 }}0</p>
+          <p>Return : ₹ {{ total_return|floatformat:2 }}</p>
+          <p>Profit : ₹ {{ total_profit|floatformat:2 }}</p>
       </div>
       <div>
         <h5><u>Total Loss</u></h5>
-          <p>Investment: ₹ 50000</p>
-          <p>Return : ₹ 80000</p>
-          <p>If cond Loss : ₹ 30000</p>
+          <p>Investment: ₹ {{ total_investment|floatformat:2 }}</p>
+          <p>Return : ₹ {{ total_return|floatformat:2 }}</p>
+          <p>Loss : ₹ {{ total_loss|floatformat:2 }}</p>
       </div>
       <div>
         <h5> <u>Most & Least selling products</u></h5>
         
-        <p>Most :- Oil,Eggs,Milk, </p>
-        <p>Chocolates,Drinks</p>
-        <p>Least :- Rice,Masala,<p>
-        </p>Jaggery,Dals</p>
+        <p>Most :- </p>
+        <p>{{ most_selling_products }}</p>
+        <p>Least :-<p>
+        </p>{{ least_selling_products }}</p>
         </div>
     </div>
   </section>

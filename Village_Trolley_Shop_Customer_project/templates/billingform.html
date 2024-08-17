@@ -9,299 +9,86 @@
 {% block content %}
  
 <section class="billing_section">
-    {% comment %} <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Load previously saved quantities when the page is loaded
-            loadQuantities();
-            
-            // Attach event listeners to all input fields
-            const inputs = document.querySelectorAll('input[type="number"]');
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    // Validate, save quantities, and update the total price
-                    validateAndSave(input);
-                    updateTotalPrice(input);
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityInputs = document.querySelectorAll('input[name="quantities"]');
+            const totalBillAmountDisplay = document.getElementById('totalBillAmount');
+        
+            function updateDisplays(input) {
+                const productId = input.id.split('_')[1];
+                const quantityDisplay = document.getElementById(`quantity_display_${productId}`);
+                const quantityDisplayBuying = document.getElementById(`quantity_display_buying_${productId}`);
+                const totalAmountDisplay = document.getElementById(`total_amount_display_${productId}`);
+                const buyingPriceSpan = document.getElementById(`buying_price_span_${productId}`);
+                const totalBuyingAmountDisplay = document.getElementById(`total_buying_amount_display_${productId}`);
+                const hiddenTotalAmountInput = document.getElementById(`hidden_total_amount_${productId}`);
+                const hiddenTotalBuyingAmountInput = document.getElementById(`hidden_total_buying_amount_${productId}`);  // Update ID
+                const sellingPricePerUnit = parseFloat(input.dataset.sellingPrice) || 0;
+                const buyingPricePerUnit = parseFloat(input.dataset.buyingPrice) || 0;
+        
+                let quantity = parseFloat(input.value);
+        
+                if (isNaN(quantity) || quantity < 1) {
+                    quantity = 1;
+                    input.value = 1;
+                }
+        
+                const totalSellingAmount = quantity * sellingPricePerUnit;
+                const totalBuyingAmount = quantity * buyingPricePerUnit;
+        
+                quantityDisplay.textContent = quantity;
+                quantityDisplayBuying.textContent = quantity;  // Update the buying display
+                totalAmountDisplay.textContent = `₹ ${totalSellingAmount.toFixed(2)}`;
+                totalBuyingAmountDisplay.textContent = `₹ ${totalBuyingAmount.toFixed(2)}`;
+                buyingPriceSpan.textContent = `₹ ${buyingPricePerUnit.toFixed(2)}`;
+        
+                hiddenTotalAmountInput.value = totalSellingAmount.toFixed(2);
+                hiddenTotalBuyingAmountInput.value = totalBuyingAmount.toFixed(2); // Update the total buying amount
+        
+                updateTotalBillAmount();
+            }
+        
+            function updateTotalBillAmount() {
+                let totalBillAmount = 0;
+                quantityInputs.forEach(input => {
+                    const productId = input.id.split('_')[1];
+                    const hiddenTotalAmountInput = document.getElementById(`hidden_total_amount_${productId}`);
+                    const totalAmountText = hiddenTotalAmountInput.value;
+                    totalBillAmount += parseFloat(totalAmountText) || 0;
+                });
+                totalBillAmountDisplay.textContent = `₹ ${totalBillAmount.toFixed(2)}`;
+            }
+        
+            quantityInputs.forEach(input => {
+                const storedQuantity = localStorage.getItem(input.id);
+                input.value = storedQuantity ? storedQuantity : 1;
+        
+                updateDisplays(input);
+        
+                input.addEventListener('input', () => {
+                    updateDisplays(input);
+                    localStorage.setItem(input.id, input.value);
                 });
             });
+        
+            updateTotalBillAmount();
         });
         
-        // Function to validate and save quantities to localStorage
-        function validateAndSave(input) {
-            let value = input.value;
-            let id = input.id.replace('quantity_', ''); // Extract product id
-        
-            // Validate if the value is a positive number greater than 0
-            if (isPositiveNumber(value)) {
-                // Save the valid quantity to localStorage
-                saveQuantities();
-            } else {
-                // Clear invalid input and provide feedback (optional)
-                input.value = '';
-                alert("Please enter a valid number greater than 0.");
-            }
-        }
-        
-        // Function to check if a value is a positive number greater than 0
-        function isPositiveNumber(value) {
-            return /^\d*\.?\d+$/.test(value) && parseFloat(value) > 0;
-        }
-        
-        // Function to save all quantities to localStorage
-        function saveQuantities() {
-            const inputs = document.querySelectorAll('input[type="number"]');
-            const quantities = {};
-        
-            inputs.forEach(input => {
-                const id = input.id.replace('quantity_', ''); // Extract product id
-                if (isPositiveNumber(input.value)) {
-                    quantities[id] = input.value;
-                }
-            });
-        
-            localStorage.setItem('quantities', JSON.stringify(quantities));
-        }
-        
-        // Function to load quantities from localStorage
-        function loadQuantities() {
-            const storedQuantities = JSON.parse(localStorage.getItem('quantities')) || {};
-        
-            for (const [id, value] of Object.entries(storedQuantities)) {
-                const input = document.getElementById(`quantity_${id}`);
-                if (input) {
-                    input.value = value;
-                    updateTotalPrice(input); // Update total price when quantities are loaded
-                }
-            }
-        }
-        
-        // Function to update total price based on input quantity and product price
-        function updateTotalPrice(input) {
-            const id = input.id.replace('quantity_', '');
-            const quantity = parseFloat(input.value) || 0;
-        
-            // Retrieve product selling price from the span element
-            const sellingPriceElement = document.getElementById(`selling_price_display_${id}`);
-            const sellingPrice = parseFloat(sellingPriceElement.innerText.replace('₹', '').trim()) || 0;
-        
-            // Calculate total price
-            const totalPrice = quantity * sellingPrice;
-        
-            // Update the display for quantity, selling price, and total amount
-            document.getElementById(`quantity_display_${id}`).innerText = Math.floor(quantity);
-            document.getElementById(`selling_price_display_${id}`).innerText = `₹ ${sellingPrice.toFixed(2)}`;
-            document.getElementById(`total_amount_${id}`).innerText = `₹ ${totalPrice.toFixed(2)}`;
-        }
-        
-        function updateTotalBill() {
-            const totalAmountElements = document.querySelectorAll('[id^="total_amount_"]');
-            let totalBill = 0;
-        
-            totalAmountElements.forEach(element => {
-                const amount = parseFloat(element.innerText.replace('₹', '').trim()) || 0;
-                totalBill += amount;
-            });
-        
-            document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
-        }
 
-    </script> {% endcomment %}
-    
-     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Load previously saved quantities when the page is loaded
-            loadQuantities();
-            
-            // Attach event listeners to all input fields
-            const inputs = document.querySelectorAll('input[type="number"]');
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    // Validate, save quantities, and update the total price
-                    validateAndSave(input);
-                    updateTotalPrice(input);
-                    updateTotalBill(); // Call to update the total bill
-                });
-            });
-        });
         
-        // Function to validate and save quantities to localStorage
-        function validateAndSave(input) {
-            let value = input.value;
-            let id = input.id.replace('quantity_', ''); // Extract product id
+    </script>
+    
+    
+    
         
-            // Validate if the value is a positive number greater than 0
-            if (isPositiveNumber(value)) {
-                // Save the valid quantity to localStorage
-                saveQuantities();
-            } else {
-                // Clear invalid input and provide feedback (optional)
-                input.value = '';
-                alert("Please enter a valid number greater than 0.");
-            }
-        }
         
-        // Function to check if a value is a positive number greater than 0
-        function isPositiveNumber(value) {
-            return /^\d*\.?\d+$/.test(value) && parseFloat(value) > 0;
-        }
         
-        // Function to save all quantities to localStorage
-        function saveQuantities() {
-            const inputs = document.querySelectorAll('input[type="number"]');
-            const quantities = {};
         
-            inputs.forEach(input => {
-                const id = input.id.replace('quantity_', ''); // Extract product id
-                if (isPositiveNumber(input.value)) {
-                    quantities[id] = input.value;
-                }
-            });
         
-            localStorage.setItem('quantities', JSON.stringify(quantities));
-        }
         
-        // Function to load quantities from localStorage
-        function loadQuantities() {
-            const storedQuantities = JSON.parse(localStorage.getItem('quantities')) || {};
         
-            for (const [id, value] of Object.entries(storedQuantities)) {
-                const input = document.getElementById(`quantity_${id}`);
-                if (input) {
-                    input.value = value;
-                    updateTotalPrice(input); // Update total price when quantities are loaded
-                }
-            }
-            
-            const inputs = document.querySelectorAll('input[type="number"]');
-            inputs.forEach(input => {
-            if (!storedQuantities[input.id.replace('quantity_', '')]) {
-            input.value = 1; // Set default value
-        updateTotalPrice(input);
-    }
-});
-
-
-            // Call updateTotalBill after all quantities are loaded and prices are updated
-            updateTotalBill();
-        }
         
-        // Function to update total price based on input quantity and product price
-        // Function to update total price based on input quantity and product price
-        function updateTotalPrice(input) {
-            const id = input.id.replace('quantity_', '');
-            const quantity = parseFloat(input.value) || 0;
-            const sellingPriceElement = document.getElementById(`selling_price_display_${id}`);
-            const sellingPrice = parseFloat(sellingPriceElement.innerText.replace('₹', '').trim()) || 0;
-            const buyingPriceElement = document.getElementById(`buying_price_display_${id}`);
-            const buyingPrice = parseFloat(buyingPriceElement.innerText.replace('₹', '').trim()) || 0;
-
-            // Calculate total price
-            const totalPrice = quantity * sellingPrice;
-
-            // Update the display for quantity, selling price, and total amount
-            document.getElementById(`quantity_display_${id}`).innerText = quantity; // Update quantity display
-            document.getElementById(`total_amount_${id}`).innerText = `₹ ${totalPrice.toFixed(2)}`;
-
-            // Also update the total bill
-            updateTotalBill();
-        }
-        // Function to update the total bill
-        function updateTotalBill() {
-            const totalAmountElements = document.querySelectorAll('[id^="total_amount_"]');
-            let totalBill = 0;
         
-            totalAmountElements.forEach(element => {
-                const amount = parseFloat(element.innerText.replace('₹', '').trim()) || 0;
-                totalBill += amount;
-            });
-        
-            document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
-        }
-
-        {% comment %} function updateTotalBill() {
-            const totalAmountElements = document.querySelectorAll('[id^="total_amount_"]');
-            let totalBill = 0;
-    
-            totalAmountElements.forEach(element => {
-                const amount = parseFloat(element.innerText.replace('₹', '').trim()) || 0;
-                totalBill += amount;
-            }); {% endcomment %}
-    
-            document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
-    
-            // Update hidden fields for form submission
-            const productIds = [];
-            const quantities = [];
-            const prices = [];
-            const totalAmounts = [];
-            const buyingPrices = [];
-    
-            document.querySelectorAll('input[type="number"]').forEach(input => {
-                const id = input.id.replace('quantity_', '');
-                const quantity = parseFloat(input.value) || 1;
-                const sellingPrice = parseFloat(document.getElementById(`selling_price_display_${id}`).innerText.replace('₹', '').trim()) || 0;
-                const totalAmount = quantity * sellingPrice;
-                const buyingPrice = parseFloat(document.getElementById(`buying_price_display_${id}`).innerText.replace('₹', '').trim()) || 0; // Get buying price (added here)
-
-                productIds.push(id);
-                quantities.push(quantity);
-                prices.push(sellingPrice);
-                totalAmounts.push(totalAmount);
-                buyingPrices.push(buyingPrice); 
-            });
-    
-            document.querySelectorAll('input[name="product_ids"]').forEach((input, index) => input.value = productIds[index]);
-            document.querySelectorAll('input[name="quantities"]').forEach((input, index) => input.value = quantities[index]);
-            document.querySelectorAll('input[name="prices"]').forEach((input, index) => input.value = prices[index]);
-            document.querySelectorAll('input[name="total_amounts"]').forEach((input, index) => input.value = totalAmounts[index]);
-            document.querySelectorAll('input[name="buying_prices"]').forEach((input, index) => input.value = buyingPrices[index]);
-        }
-    
-        function updateHiddenFields() {
-            const productIds = [];
-            const quantities = [];
-            const prices = [];
-            const totalAmounts = [];
-            const buyingPrices = [];
-
-            document.querySelectorAll('tr.table-row').forEach(row => {
-                const id = row.querySelector('input[id^="quantity_"]').id.replace('quantity_', '');
-                const quantity = parseFloat(row.querySelector(`#quantity_${id}`).value) || 1;
-                const sellingPrice = parseFloat(row.querySelector(`#selling_price_display_${id}`).innerText.replace('₹', '').trim()) || 0;
-                const totalAmount = quantity * sellingPrice;
-                const buyingPrice = parseFloat(row.querySelector(`#buying_price_display_${id}`).innerText.replace('₹', '').trim()) || 0;
-                
-                productIds.push(id);
-                quantities.push(quantity);
-                prices.push(sellingPrice);
-                totalAmounts.push(totalAmount);
-                buyingPrices.push(buyingPrice);
-    
-                // Update the total amount display
-                row.querySelector(`#total_amount_${id}`).innerText = `₹ ${totalAmount.toFixed(2)}`;
-            });
-    
-            // Update hidden fields
-            document.querySelectorAll('input[name="product_ids"]').forEach((input, index) => input.value = productIds[index]);
-            document.querySelectorAll('input[name="quantities"]').forEach((input, index) => input.value = quantities[index]);
-            document.querySelectorAll('input[name="prices"]').forEach((input, index) => input.value = prices[index]);
-            document.querySelectorAll('input[name="total_amounts"]').forEach((input, index) => input.value = totalAmounts[index]);
-            document.querySelectorAll('input[name="buying_prices"]').forEach((input, index) => input.value = buyingPrices[index]);
-            // Update total bill amount
-            const totalBill = totalAmounts.reduce((sum, amount) => sum + amount, 0);
-            document.getElementById('totalBillAmount').innerText = `₹ ${totalBill.toFixed(2)}`;
-        }
-    
-        // Attach event listeners to all quantity inputs
-        document.querySelectorAll('input[type="number"]').forEach(input => {
-            input.addEventListener('input', updateHiddenFields);
-        });
-    
-        // Initial call to set hidden fields and total amount on page load
-        updateHiddenFields();
-
-
-    </script> 
-    
 
 
     <div class="billing_box">
@@ -312,15 +99,19 @@
         {% comment %} <button class="bill-button2">Low Stock Products</button> {% endcomment %}
         <h2></h2>
 
-        {% comment %} low_stock_products {% endcomment %}
-        {% comment %} <button class="bill-button2">Low Stock Products</button> {% endcomment %}
+        
         <a href="{% url 'low_stock_products' shop_owner_id %}" class="bill-button2">Low Stock Products</a>
         
-        <form>   
-        <input type="text" id="productNameSearch" class="cust_mailId" placeholder="Enter Customer registerd Phone number">
-        </form> 
-            
         
+        <form method="get"  class="phone-search-container">
+            <input type="text" id="phoneNumberSearch" name="phone_number" class="cust_mailId" placeholder="Enter Customer registered Phone number" value="{{ phone_number_value }}">
+            {% comment %} <input type="text" id="phoneNumberSearch" name="phone_number" class="cust_mailId" placeholder="Enter Customer registered Phone number" value="{{ phone_number_value }}"> {% endcomment %}
+            <button type="submit" class="cust_ph_button"><i class="fa fa-search"></i></button>
+        </form>
+        
+        <p class="customer_phone_number">Customer's Phone Number :- {{ phone_number_from_db }}  --  Customer's Name :-  {{ customer_first_name }} {{ customer_last_name }}</p>
+        
+    
 
         <div class="search-container">
             
@@ -331,132 +122,7 @@
                 <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
             </form>
         </div>
-        <div>
-            <h2 style="color: #0000FF;"><b>Note:- </b> The default quantity is 1. After you search for a product, please change the quantity in the billing products table, not on the search result.</h2>
-        </div>
-        {% comment %} <table class="billtable">
-            <thead>
-                <tr>
-                    <th class="product-name">Product Name</th>
-                    <th class="quantity">Enter Quantity (In KG)</th>
-                    <th class="price">Price</th>
-                    <th class="place">Place</th>
-                </tr>
-            </thead>
-            <tbody> {% endcomment %}
-                {% comment %} {% for product in products %}
-                <tr class="table-row" data-unit-price="{{ product.product_selling_price }}">
-                    <td class="product-name">{{ product.product_name }}</td>
-                    <td class="quantity-editable" contenteditable="true">1</td>
-                    <td class="price-value">1 X ₹ {{ product.product_selling_price }} = ₹ {{ product.product_selling_price }}</td>
-                    <td class="place-value">{{ product.product_storage_place }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="4">No product found</td>
-                </tr>
-                {% endfor %} {% endcomment %}
-                {% comment %} <tr class="table-row">
-                    <td class="product-name">Product 1</td>
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 20 = ₹ 200</td>
-                    <td class="place-value">New York</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="product-name">Product 2</td>
-                    
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 30 = ₹ 300</td>
-                    <td class="place-value">Los Angeles</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="product-name">Product 1</td>
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 20 = ₹ 200</td>
-                    <td class="place-value">New York</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="product-name">Product 1</td>
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 20 = ₹ 200</td>
-                    <td class="place-value">New York</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="product-name">Product 1</td>
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 20 = ₹ 200</td>
-                    <td class="place-value">New York</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="product-name">Product 1</td>
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 20 = ₹ 200</td>
-                    <td class="place-value">New York</td>
-                </tr>
-                <tr class="table-row">
-                    <td class="product-name">Product 1</td>
-                    <td class="quantity-editable" contenteditable="true">10</td>
-                    <td class="price-value">10 X ₹ 20 = ₹ 200</td>
-                    <td class="place-value">New York</td>
-                </tr> {% endcomment %}
-                <!-- Additional rows can be dynamically added using JavaScript -->
-            {% comment %} </tbody>
-        </table> {% endcomment %}
-
-        {% comment %} <table class="billtable" id="productsTable">
-            <thead>
-                <tr>
-                    <th class="product-name">Product Name</th>
-                    <th class="quantity">Modify Quantity (In KG)</th>
-                    <th class="price">Price</th>
-                    <th class="place">Place</th>
-                </tr>
-            </thead>
-            <tbody> {% endcomment %}
-
-
-            {% comment %} {% if products %}
-            {% for product in products %}
-                <tr class="table-row">
-                    <td>{{ product.product_name }}</td>
-                    <td><input type="number" name="quantity_{{ product.id }}" min="1" step="any"></td>
-                    <td> <b> ₹ </b>{{ product.product_selling_price }}</td>
-                    <td>{{ product.product_storage_place }}</td>
-                </tr>
-            {% endfor %}
-        {% else %}
-            <tr>
-                {% if product.id in previously_searched_ids and product.id in current_search_ids %}
-                        <td colspan="4" class="alert">The product has already been searched. Please check the table if you want to add it again and increase the quantity.</td>
-                {% endif %}
-                <td colspan="4" >No products found</td>
-            </tr>
-            {% endif %} {% endcomment %}
-            {% comment %} {% if products %}
-            {% for product in products %}
-                <tr class="table-row">
-                    <td>{{ product.product_name }}</td>
-                    <td><input type="number" 
-                        id="quantity_{{ product.id }}" 
-                        min="1" 
-                        step="any" 
-                        value=""></td> {% endcomment %}
-                    {% comment %} <td><b> ₹ </b>{{ product.product_selling_price }}</td> {% endcomment %}
-                    {% comment %} <td id="total_{{ product.id }}">
-                        <span id="quantity_display_{{ product.id }}">0</span> X 
-                        <span id="selling_price_display_{{ product.id }}">₹ {{ product.product_selling_price }}</span> = 
-                        <span id="total_amount_{{ product.id }}">0</span>
-                    </td>
-                    <td>{{ product.product_storage_place }}</td>
-                </tr>
-            {% endfor %}
-        {% else %}
-            <tr>
-                <td colspan="4" style="color: red; font-weight: bold; font-style: italic; text-align: center; font-size: 27px;">No products were found based on your search. The item is not available in the store. If you want to add the product, you can do so by adding items from the Add items.</td>
-            </tr>
-        {% endif %}
-            </tbody>
-        </table> {% endcomment %}
+        
 
         {% comment %} ******************* {% endcomment %}
         <form method="post" action="{% url 'shop_owner_billing' shop_owner_id %}">
@@ -478,36 +144,35 @@
                                 <td>{{ product.product_name }}</td>
                                 <td>
                                     <input type="number" 
-                                           id="quantity_{{ product.id }}" 
-                                           name="quantities" 
-                                           min="1" 
-                                           step="any" 
-                                           value="1">
+                                        id="quantity_{{ product.id }}" 
+                                        name="quantities" 
+                                        min="1" 
+                                        step="any" 
+                                        value="1"
+                                        data-selling-price="{{ product.product_selling_price }}"
+                                        data-buying-price="{{ product.product_buying_price }}">
+                                    <input type="hidden" name="product_ids" value="{{ product.id }}">
+                                    <input type="hidden" name="prices" value="{{ product.product_selling_price }}">
+                                    <input type="hidden" name="total_amounts" id="hidden_total_amount_{{ product.id }}" value="{{ product.product_selling_price }}">
+                                    <input type="hidden" name="total_buying_amounts" id="hidden_total_buying_amount_{{ product.id }}" value="0">
                                 </td>
-    
-                                {% comment %} <td id="total_{{ product.id }}">
-                                    <span id="quantity_display_{{ product.id }}">1</span> X 
-                                    <span id="selling_price_display_{{ product.id }}">₹ {{ product.product_selling_price }}</span> = 
-                                    <span id="total_amount_{{ product.id }}">₹ {{ product.product_selling_price }}</span>
-                                </td> {% endcomment %}
                                 <td id="total_{{ product.id }}">
                                     <span id="quantity_display_{{ product.id }}">1</span> X 
                                     <span id="selling_price_display_{{ product.id }}">₹ {{ product.product_selling_price }}</span> = 
-                                    <span id="total_amount_{{ product.id }}">₹ {{ product.product_selling_price }}</span>
+                                    <span id="total_amount_display_{{ product.id }}">₹ {{ product.product_selling_price }}</span>
                                 </td>
-                                <td id="buying_price_display_{{ product.id }}">₹  {{ product.product_buying_price }}</td>
+                                <td id="buying_price_display_{{ product.id }}">
+                                    <span id="quantity_display_buying_{{ product.id }}">1</span> X 
+                                    <span id="buying_price_span_{{ product.id }}">₹ {{ product.product_buying_price }}</span> = 
+                                    <span id="total_buying_amount_display_{{ product.id }}">₹ {{ product.product_buying_price }}</span>
+                                </td>
                                 <td>{{ product.product_storage_place }}</td>
-                                <!-- Hidden fields for form submission -->
-                                <input type="hidden" name="product_ids" value="{{ product.id }}">
-                                <input type="hidden" name="prices" value="{{ product.product_selling_price }}">
-                                <input type="hidden" name="total_amounts" value="{{ product.product_selling_price }}">
-                                <input type="hidden" name="buying_prices" value="{{ product.product_buying_price }}">
                             </tr>
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="4" style="color: red; font-weight: bold; font-style: italic; text-align: center; font-size: 27px;">
-                                If not searched, start searching. If searched, No products were found based on your search. The item is not available in the store. Search again to add the next product.If you want to add the product, you can do so by adding items from the Add items.
+                            <td colspan="5" style="color: red; font-weight: bold; font-style: italic; text-align: center; font-size: 27px;">
+                                If not searched, start searching. If searched, No products were found based on your search. The item is not available in the store. Search again to add the next product. If you want to add the product, you can do so by adding items from the Add items.
                             </td>
                         </tr>
                     {% endif %}
@@ -520,16 +185,14 @@
                             {% endfor %}
                         </div>
                     {% endif %}
-
                 </tbody>
             </table>
             <div class="total-section">
                 <div style="color: Green;">Total Amount: <span id="totalBillAmount">₹ 0.00</span></div>
-                {% comment %} <div>Total Amount: <span id="totalBillAmount">₹ 0.00</span></div> {% endcomment %}
             </div>
-            {% comment %} <div style="color: Green;">Total Amount: <span id="totalBillAmount">₹ 0.00</span></div> {% endcomment %}
             <button type="submit" class="bill-button">Bill</button>
         </form>
+        
         
 
         {% comment %} ********************* {% endcomment %}

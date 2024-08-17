@@ -195,12 +195,44 @@
 }
 
 .cust_mailId {
-    width:500px;
-    height:20px;
+    width: 40%; /* Full width of the container */
+    height: 40px;
     border-radius: 8px;
-    padding:10px;
+    padding: 10px;
+    padding-right: 50px; /* Space for the button */
     border: 1.5px solid black;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #ff4081; /* Pink color for text */
+    background-color: #fff;
 }
+.cust_mailId::placeholder {
+    color: #ff4081; /* Pink color for placeholder */
+    font-size: 16px;
+}
+
+.cust_mailId:focus {
+    outline: none;
+    border-color: #ff4081; /* Pink border on focus */
+}
+
+
+.cust_ph_button {
+    position: absolute;
+    background-color: #ff4081;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 19px;
+    left: 910px;
+    top:405px;
+}
+
+
+
 
 .adih {
     color:#FF4500;
@@ -213,4 +245,23 @@
     padding: 10px; /* Padding to add space inside the alert box */
     border-radius: 4px; /* Optional: Rounded corners */
     margin:10px;
+}
+
+.alert-error {
+    color: #dc3545; /* Dark red text color */
+    background-color: #f8d7da; /* Light red background color */
+    border: 1px solid #e8081e; /* Red border color */
+    padding: 10px; /* Padding to add space inside the alert box */
+    border-radius: 4px; /* Optional: Rounded corners */
+    margin: 10px;
+}
+
+.customer_phone_number {
+    color: #0786ef; 
+    font-size: 25px; 
+    border: 1px solid #1c06e0; 
+    background-color: #d5f4f4; 
+    padding: 5px; 
+    border-radius: 4px;
+
 }
