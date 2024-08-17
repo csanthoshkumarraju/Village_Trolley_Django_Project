@@ -1,0 +1,82 @@
+{% extends "customerbase.html" %}
+
+{% load static %}
+{% block css %}
+    <!-- Link to home-specific CSS -->
+    <link rel="stylesheet" href="{% static 'dailymonthlydata.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css%}
+{% block content %}
+
+<section class="DMSPsec">
+   <h1 class="DMASCH"> {{customer_first_name}} {{ customer_last_name }} </h1>
+   <div class="DMSPbox">
+      <div class="daily">
+         <h2 class="DSPBH"><u>Daily Purchasing Products</u></h2>
+        <div class="input-container">
+          <form method="GET" class="daily-search-form">
+            <input type="text" name="c_daily_date" placeholder="Enter the date (Ex: 15-07-2024)" value="{{ c_daily_selected_date }}">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+        </form>
+        </div>
+         <h5 class="DSPH"> <u><i>   Product Name          Quantity         Price</u></i></h5>
+         {% if daily_transactions %}
+         <div id="daily-transactions">
+             {% for transaction in daily_transactions %}
+                 <p class="DSPP">
+                     {{ transaction.product_name }} - {{ transaction.quantity }} - ₹ {{ transaction.total_amount }}
+                 </p>
+             {% endfor %}
+         </div>
+     {% else %}
+         <p class="DSPP">No products found for the selected date {{ c_daily_selected_date }}.</p>
+     {% endif %}
+        
+ <div class="container-unique">
+ <div class="white-box-unique">
+   <div class="text-unique">
+     <p>TOTAL AMOUNT PURCHASED ON {{ c_daily_selected_date }}:<b> ₹  {{daily_total_amount}} </b></p>
+    
+   </div>
+ </div>
+</div>
+
+        
+      </div>
+      <div class="monthly">
+         <h2 class="MSPBH"><u>Monthly Purchasing Products</u></h2>
+        <div class="input-container">
+          <form method="GET" class="monthly-search-form">
+            <input type="text" name="c_monthly_date" placeholder="Filter by month and year (Ex: 07-2024)" value="{{ c_monthly_selected_date }}">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+          </form>
+          
+        </div>
+         <h5 class="MSPH"> <u><i>   Product Name           Quantity          Price</u></i></h5>
+         {% if monthly_transactions %}
+    <div id="monthly-transactions">
+        {% for transaction in monthly_transactions %}
+            <p class="MSPP">
+                {{ transaction.product_name }} - {{ transaction.quantity }} - ₹ {{ transaction.total_amount }}
+            </p>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="MSPP">No products found for the selected month {{ c_monthly_selected_date }}.</p>
+{% endif %}
+          <div class="container-unique">
+ <div class="white-box-unique">
+   <div class="text-unique">
+     <p>TOTAL AMOUNT PURCHASED {{ c_monthly_selected_date }} MONTH:<b> ₹  {{ monthly_total_amount }} </b></p>
+   </div>
+ </div>
+</div>
+      </div>
+   </div>
+</section>
+
+ {% endblock %}

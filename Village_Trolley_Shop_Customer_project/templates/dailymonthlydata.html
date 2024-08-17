@@ -9,30 +9,6 @@
 {% block content %}
 
 <section class="DMSPsec">
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Function to calculate and display total price
-      function updateTotalPrices(containerId) {
-          const container = document.getElementById(containerId);
-          if (container) {
-              const items = container.querySelectorAll('p');
-              items.forEach(item => {
-                  const quantity = parseFloat(item.getAttribute('data-quantity'));
-                  const price = parseFloat(item.getAttribute('data-price'));
-                  const total = quantity * price;
-                  // Directly update the text content of the <p> element
-                  const parts = item.textContent.split(' - ₹');
-                  item.textContent = `${parts[0]} - ₹ ${total.toFixed(2)}`;
-              });
-          }
-      }
-  
-      // Update daily and monthly transaction prices
-      updateTotalPrices('daily-transactions');
-      updateTotalPrices('monthly-transactions');
-  });
-  
-    </script>
    <h1 class="DMASCH"> {{ shop_owner_first_name }} {{ shop_owner_last_name }} 's  - {{ shop_owner_shop_name }}  </h1>
    <div class="DMSPbox">
       <div class="daily">
@@ -93,21 +69,21 @@
 {% if daily_transactions %}
     <div id="daily-transactions">
         {% for transaction in daily_transactions %}
-            <p class="DSPP" data-quantity="{{ transaction.quantity }}" data-price="{{ transaction.price }}">
-                {{ transaction.product_name }} - {{ transaction.quantity }} -  ₹ </span>
+            <p class="DSPP">
+                {{ transaction.product_name }} - {{ transaction.quantity }} -  ₹ {{ transaction.total_amount }} </span>
             </p>
         {% endfor %}
         {% else %}
-    <p class="DSPP">No products found for the selected date.</p>
+    <p class="DSPP">No products found for the selected date {{ daily_selected_date }}.</p>
     </div>
 {% endif %}
 
  <div class="container-unique">
  <div class="white-box-unique">
    <div class="text-unique">
-     <p>TOTAL AMOUNT INVESTED TODAY:<b> ₹  100000</b></p>
-     <p>TOTAL AMOUNT SOLD TODAY:<b> ₹ {{ daily_total_amount }} </b></p>
-     <p>TOTAL AMOUNT PROFIT/LOSS TODAY: <b> ₹ 100000 </b></p>
+     <p>TOTAL AMOUNT INVESTED ON {{ daily_selected_date }} :<b> ₹  {{ daily_investemnt }} </b></p>
+     <p>TOTAL AMOUNT SOLD  ON {{ daily_selected_date }} :<b> ₹ {{ daily_total_amount }} </b></p>
+     <p>TOTAL AMOUNT PROFIT/LOSS ON {{ daily_selected_date }}: <b> ₹ {{ daily_profit }} </b></p>
    </div>
  </div>
 </div>
@@ -147,12 +123,12 @@
      {% if monthly_transactions %}
     <div id="monthly-transactions">
         {% for transaction in monthly_transactions %}
-            <p class="MSPP" data-quantity="{{ transaction.quantity }}" data-price="{{ transaction.price }}">
-                {{ transaction.product_name }} - {{ transaction.quantity }} -  ₹ </span>
+            <p class="MSPP">
+                {{ transaction.product_name }} - {{ transaction.quantity }} -  ₹ {{ transaction.total_amount }}</span>
             </p>
         {% endfor %}
         {% else %}
-         <p class="MSPP">No products found for the selected month.</p>
+         <p class="MSPP">No products found for the selected month {{ monthly_selected_date }}.</p>
     </div>
 {% endif %}
 
@@ -162,9 +138,9 @@
          <div class="container-unique">
  <div class="white-box-unique">
    <div class="text-unique">
-     <p>TOTAL AMOUNT INVESTED THIS MONTH:<b> ₹  100000</b></p>
-     <p>TOTAL AMOUNT SOLD THIS MONTH:<b> ₹ {{ monthly_total_amount }} </b></p>
-     <p>TOTAL AMOUNT PROFIT/LOSS THIS MONTH: <b> ₹ 100000 </b></p>
+     <p>TOTAL AMOUNT INVESTED IN  {{ monthly_selected_date }} MONTH:<b> ₹  {{ monthly_investemnt }} </b></p>
+     <p>TOTAL AMOUNT SOLD IN {{ monthly_selected_date }}  MONTH :<b> ₹ {{ monthly_total_amount }} </b></p>
+     <p>TOTAL AMOUNT PROFIT/LOSS IN {{ monthly_selected_date }} MONTH: <b> ₹ {{ monthly_profit }} </b></p>
    </div>
  </div>
 </div>

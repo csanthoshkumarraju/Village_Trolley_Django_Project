@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'shop_owner_billing_app',
     'shop_owner_shop_low_stock_products',
     'shop_owner_daily_monthly_sold_products',
+    'customer_daily_monthly_products',
 ]
 
 MIDDLEWARE = [
