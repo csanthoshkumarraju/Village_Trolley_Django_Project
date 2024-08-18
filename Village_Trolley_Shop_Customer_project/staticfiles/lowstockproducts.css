@@ -1,0 +1,92 @@
+.lowstockproducts {
+    padding:25px;
+    height: auto;
+    background: linear-gradient(to bottom right, #702963, #811331,#814141, #FF003F);
+}
+.lowstockbox {
+   width:1250px;
+   height: auto;
+   margin:0 auto;
+   border-radius:8px;
+   background: linear-gradient(to bottom right, #C1E1C1, #4FB1C1, #ADD8E6);
+}
+
+.lowstockhead {
+   font-size:28px;
+   padding:5px;
+   margin-left:290px;
+   background-image: linear-gradient(to right, #FF0800, #F400A1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lowstkbut {
+  padding: 5px 5px; /* Adjusted padding for more natural spacing */
+  background-color: #FF003F;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  display: inline-flex; /* Use inline-flex to fit content width */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  border: none; 
+  outline: none; 
+  position: relative;
+  margin:20px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.lowstkbut::before {
+  position: absolute; /* Position relative to .lowstkbut */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* Behind the button content */
+  border-radius: inherit; /* Inherit border-radius from .lowstkbut */
+  background-image: linear-gradient(to right, #007FFF, #FF00BF, #FF5733); /* Gradient background */
+}
+
+.lowstkbut:hover {
+  background-color: white;
+  color: #FF003F;
+}
+
+
+
+.lowstocklist {
+  font-size: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgb(7, 7, 236);
+}
+.lowstocklist p {
+  margin: 0; 
+  color: #cc0000; 
+  font-size: 26px; 
+}
+.lowstocklist p + p {
+  border-top: 1px solid #ccc; 
+  padding-top: 10px; 
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 26px;
+}
+.column {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.product-row {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}

@@ -1,0 +1,29 @@
+.KMDIseccont {
+    padding:30px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+    font-size:27px;
+    font-family:Optima;
+    
+}
+
+.KMDIlist {
+list-style:none;
+line-height: 1.5;
+color:black;
+}
+
+.KMDIsec {
+  background: linear-gradient(to bottom left, #B9D9EB, #6082B6, #B0C4DE, #D8BFD8, #D8BFD8);
+}
+
+
+.KMIDhead {
+  color: #FF5F1F;
+}
+.FSObox1 {
+  color:#5D3FD3;
+}

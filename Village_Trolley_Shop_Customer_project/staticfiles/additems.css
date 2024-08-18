@@ -1,0 +1,101 @@
+.adih {
+    font-size:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:Rockwell;
+
+}
+
+.additemsguide {
+    padding:10px;
+    color:green;
+    font-size:20px;
+    font-family:Tahoma;
+}
+
+
+.additems {
+   padding:25px;
+   background: #CCCCFF;
+   background: -webkit-linear-gradient(top left, #CCCCFF, #72A0C1); 
+   background: -o-linear-gradient(bottom right, #CCCCFF, #72A0C1); 
+   background: -moz-linear-gradient(bottom right, #CCCCFF, #72A0C1); 
+   background: linear-gradient(to bottom right, #CCCCFF, #72A0C1);
+   text-align: justify;
+   height:auto;
+   
+}
+.additemsbox {
+  width:1400px;
+  height:auto;
+  background-color:#e5e4e2;
+  margin:0 auto;
+  border-radius:8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  
+}
+
+
+
+
+.editable-table {
+  width: 95%;
+  margin:0 auto;
+  font-size:23px;
+/*   border-collapse: collapse; */
+}
+
+.editable-table th,
+.editable-table td {
+  border: 0.99px solid #6F00FF;
+  padding: 5px;
+}
+
+.editable-table input[type="text"] {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+  font-size:22px;
+}
+  
+.save-button {
+  margin-left:600px;
+  padding: 10px;
+  background-color: #6F00FF;
+  color: white;
+  border: 1px solid  #FF00FF ;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 6px;
+  
+}
+
+.save-button:hover {
+  background-color: white;
+  color:#6F00FF;
+}
+
+.AISB {
+  margin:0 auto;
+  padding:15px;
+}
+
+/* CSS class for the button */
+.add-next-item-button {
+  border: 2px solid orange; /* Orange border */
+  background-color: green; /* Green background */
+  color: white; /* White text */
+  padding: 5px 5px; /* Padding to make it look nice */
+  font-size: 18px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  border-radius:8px;
+
+}
+
+/* Hover effect */
+.add-next-item-button:hover {
+  background-color: white; /* White background on hover */
+  color: green; /* Green text on hover */
+}

@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+
+.container {
+    display: flex;
+    max-width: 800px;
+    background-color: #E6E6FA;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Monaco;
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:300px;
+    padding:30px;
+}
+
+/* Left and right sections */
+.left, .right {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Heading styles */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* List styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Link styles */
+.register-link, .login-link {
+    display: block;
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.register-link:hover, .login-link:hover {
+    color: red; 
+}
+
+
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0077c0;
+    color: white;
+    padding: 10px; 
+}
+
+.navbar-title {
+    font-size: 40px;
+}
+
+.navbar-title span {
+    display: inline-block;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center; /* Align navbar links vertically */
+}
+
+.navbar-links a {
+    margin-right: 15px;
+    text-decoration: none; /* Removed underline */
+    color: white; /* Use white for link color */
+    font-size: 22px;
+}
+
+.navbar-links a:hover {
+    color: #000000; 
+}
+
+.user-section {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align user info text to the left */
+}
+
+.user-info h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.login-register {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.login-register a {
+    text-decoration: none; /* Removed underline */
+    color: white; /* Use white for link color */
+    font-size: 21px;
+}
+
+.login-register a:hover {
+    color: black; /* Change hover color */
+}
+
+.login-register span {
+    margin: 0 5px;
+}
+
+.fa-circle-user {
+    font-size: 51px;
+    color: white; /* Use white for icon color */
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+/* Adjustments for mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar-custom {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        margin-top: 10px; /* Adjust margin between navbar sections */
+    }
+}
+
+.W {
+    color:#FEBE10;
+}
+
+.footer {
+    background-color: #282C35;
+    color: white;
+    text-align: center;
+    /* padding: 10px 0; */
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+/*     z-index: 1000; Ensure the footer is above other content */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 10px; /* Adjust gap between grid items */
+}
+
+.footer-item {
+    padding: 10px;
+}
+
+.footer-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-item ul li {
+    margin-bottom: 5px;
+}
+
+.copy {
+    grid-column: 1 / -1; /* Span across all columns */
+    text-align: center;
+    color: green;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.copy p {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.Footer_Heading {
+  color:#FFDEAD;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.footer_links {
+  text-decoration: underline;
+  color:#F9F6EE;
+}
+
+.footer_links:hover {
+  color: #00FF00; 
+}
+
+.F_icons {
+  font-size: 30px;
+  color:#F9F6EE;
+}
+
+.fa-mobile-button, .fa-envelope , .fa-whatsapp , .fa-instagram , .fa-facebook , .fa-twitter {
+  color:#F9F6EE;
+}
+
+.fa-mobile-button:hover {
+    color: #2196F3; 
+}
+
+.fa-envelope:hover{
+  color: #D14836;
+}
+
+.fa-whatsapp:hover{
+  color: #25D366;
+}
+
+.fa-instagram:hover{
+  color:#E4405F;
+}
+
+.fa-facebook:hover{
+  color:#1877F2;
+}
+
+.fa-twitter:hover{
+  color: #1DA1F2;
+}

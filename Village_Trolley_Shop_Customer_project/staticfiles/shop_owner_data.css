@@ -1,0 +1,108 @@
+.shop_owner_all_products_sec {
+    padding:35px;
+}
+.data_header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size:30px;
+    background: linear-gradient(135deg, #6F00FF 20%, #FF00BF 50%, #0000FF 80%);
+  -webkit-background-clip: text; /* Clipping the background to the text */
+  -webkit-text-fill-color: transparent;
+  font-family: Rockwell;
+    
+}
+
+.center-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.center-table th, .center-table td {
+    border: 1px solid #000; /* Add border around cells */
+    padding: 8px;
+    text-align: center;
+    color: #6F00FF; /* Purple text color */
+    font-family: Verdana; /* Font style */
+    font-size: 16px;
+}
+.blue-border th, .blue-border td {
+    border: 1px solid blue; /* Blue border around cells */
+}
+.blue-border th {
+    background-color: #cce5ff; /* Light blue background for headers */
+}
+.blue-border td {
+    background-color: #e6f2ff; /* Slightly different light blue for data cells */
+}
+
+/* Styling for the search form */
+.search-form {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #6F00FF;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+    color: #04b52d;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.search-input::placeholder {
+    color: #04b52d; /* Green color for placeholder */
+}
+
+.glass-text {
+    text-align: center;
+    color: white; /* Change text color for better contrast */
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba( 253, 126, 9, 0.85 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 12px );
+    -webkit-backdrop-filter: blur( 12px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
+
+}
+
+.glass-text-green {
+    text-align: center;
+    color: white; /* Text color for contrast */
+    background: rgba(11, 210, 5, 0.932); /* Updated background with green tint and transparency */
+    border-radius: 16px; /* Updated border radius for a slightly more rounded effect */
+    padding: 20px;
+    backdrop-filter: blur(9px); /* Adjusted blur for a more subtle glass effect */
+    -webkit-backdrop-filter: blur(9px); /* Adjusted blur for a more subtle glass effect */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Updated shadow for a softer depth effect */
+    border: 1px solid rgba(12, 160, 66, 0.3); /* Updated border to match the background color */
+}
+
+
+
+  

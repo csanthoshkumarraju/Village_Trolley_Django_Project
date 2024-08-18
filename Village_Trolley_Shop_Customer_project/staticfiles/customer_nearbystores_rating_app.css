@@ -1,0 +1,57 @@
+/* General styling for the section */
+.centered-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 800px; /* Adjust as needed */
+}
+
+/* Centering the heading */
+.centered-heading {
+    text-align: center;
+    font-size: 2em; /* Adjust size as needed */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+
+/* Styling for alert messages */
+.alert {
+    color: red;
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Form and input styling */
+.search-form, .rating-form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="number"], textarea {
+    border: 2px solid gold;
+    padding: 10px;
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    height: 40px; /* Increased height */
+    margin-bottom: 10px; /* Spacing below inputs */
+}
+
+input[type="submit"], button {
+    background-color: #4CAF50; /* Green background for button */
+    color: white;
+    border: 2px solid orange;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 1em; /* Adjust size as needed */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: white;
+    color: #4CAF50; /* Green text on hover */
+}

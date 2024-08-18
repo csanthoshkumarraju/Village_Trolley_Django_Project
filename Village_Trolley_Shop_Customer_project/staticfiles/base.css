@@ -1,0 +1,30 @@
+/* Default styles for all screens */
+@media (min-width: 0) {
+    .content {
+      font-size: 16px; /* Adjust as needed */
+    }
+    .image {
+      width: 75%; /* Adjust as needed */
+    }
+  }
+  
+  /* Styles for screens less than 768px wide (phones) */
+  @media (max-width: 768px) {
+    .content {
+      font-size: 14px;
+    }
+    .image {
+      width: 100%;
+    }
+  }
+  
+  /* Optional: Styles for tablets (adjust breakpoints as needed) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* Styles for tablets */
+  }
+  
+  /* Optional: Styles for desktops (adjust breakpoints as needed) */
+  @media (min-width: 992px) {
+    /* Styles for desktops */
+  }
+  
