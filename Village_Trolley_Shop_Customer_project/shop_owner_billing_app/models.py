@@ -21,11 +21,11 @@ class ProductTransaction(models.Model):
         return f'{self.product_name} - {self.quantity} KG - {self.total_amount}'
     
 class CustomerPurchase(models.Model):
-    phone_number = models.CharField(max_length=200)
-    product_name = models.CharField(max_length=255)
-    quantity = models.PositiveIntegerField()
-    total_amount = models.DecimalField(max_digits=100, decimal_places=2)
-    submission_date = models.DateTimeField(auto_now_add=True)
+    phone_number = models.CharField(max_length=200,null=True)
+    product_name = models.CharField(max_length=255,null=True)
+    quantity = models.PositiveIntegerField(null=True)
+    total_amount = models.DecimalField(max_digits=100, decimal_places=2,null=True)
+    submission_date = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
         return f"{self.phone_number} - {self.product_name} - {self.quantity}"
